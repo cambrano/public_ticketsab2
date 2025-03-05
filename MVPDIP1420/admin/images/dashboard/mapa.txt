@@ -1,0 +1,5 @@
+260000 linea negra linea negra
+Color #ad849e de fondo son dos imagnes que generas del mismo
+
+1 Mapa solo lineas
+1 Mapa con el backgound y lineas negras

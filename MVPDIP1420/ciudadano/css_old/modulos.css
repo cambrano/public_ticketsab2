@@ -1,0 +1,212 @@
+@charset "utf-8";
+
+ 
+ 
+.moduloP{
+	width: 25%;
+	display: table;
+	float: left; 
+	padding: 10px;
+	color: black;
+} 
+.moduloP:hover{
+	background-color: #f8f7f8
+} 
+.moduloPR{
+	width: 50%;
+	display: table;
+	float: left; 
+	padding: 10px; 
+	color: black; 
+} 
+ 
+.modulonametitulo
+{
+	 
+	color: rgb(31,73,125);
+	font-size: 24.5;
+	text-align: left;
+	 
+}
+.modulo{
+	border: 1px solid gray; 
+	float: left;
+	width: 100%;  
+	height: 100%; 
+	word-break: break-all;
+	text-align: left;
+	padding: 10px; 
+	display: block;
+	cursor: pointer;
+	color: white;
+	text-align: center;
+}
+.modulo : hover {
+	background-color: red; 
+	opacity: 1;
+
+}
+.moduloImagen{ 
+	width: 100%;
+	text-align: center;
+	margin-top: 10px;
+	/*height: 100%;
+	float: left;
+	position: relative;*/
+}
+ 
+
+.moduloDetalle{ 
+	width: 100%;
+	text-transform: uppercase;
+	letter-spacing: 6px;
+	font-weight: 10px;
+	/*height: 100%;
+	float: right;*/
+	position: relative;
+	margin-top: 15px;
+	text-align: center;
+	word-break: break-all; 
+	font-size: 8px;
+	color: black;
+	font-weight: bold;
+
+
+}
+
+.moduloDetalle:hover{  
+	opacity: 1;
+	color: gray;
+
+}
+.moduloDetalle:active{  
+	opacity: 2;
+	/*color: green;*/
+
+}
+.moduloImagen:hover{  
+	opacity: 1;
+	color: gray;
+
+}
+.moduloImagen:active{  
+	opacity: 1;
+	color: green;
+	background-color: blue;
+
+}
+
+.modulo_reporte{
+	/*border: 1px solid gray; */
+	 
+	 
+	width: 100%;   
+	height: 150px;
+	word-break: break-all;
+	text-align: left; 
+	display: table; 
+	color: white;
+	text-align: center;
+	background-color: black;
+}
+
+.moduloTitulo_reporte{ 
+	width: 100%;
+	text-transform: uppercase;
+	letter-spacing: 6px;
+	font-weight: 10px; 
+	 
+	text-align: left;
+	word-break: break-all; 
+	font-size: 12px; 
+	padding: 12px;
+	background-color: #232323;
+	color: white;
+
+
+}
+.moduloDetalle_reporte{
+	width: 100%;
+	padding: 16px;
+	text-transform: uppercase;
+	letter-spacing: 6px;
+	font-weight: 10px;   
+	text-align: left;
+	word-break: break-all; 
+	font-size: 12px; 
+	color: white;
+}
+.moduloLink:link {
+    color: white;
+    text-decoration:none; 
+}
+
+/* visited link */
+.moduloLink:visited {
+    color: white;
+    text-decoration:none; 
+}
+
+/* mouse over link */
+.moduloLink:hover {
+    color: gray;
+    text-decoration:none; 
+}
+
+/* selected link */
+.moduloLink:active {
+    color: white;
+    text-decoration:none; 
+}
+.moduloConfig{
+	width: 100%;
+	background:rgba(255,255,248,0.5);
+	display: table; 
+	padding: 5px;
+}
+/* Media Query for Mobile Devices */
+@media (max-width: 480px) {
+    .moduloP {
+        width:100%;
+    }
+    .moduloDetalle{
+    	font-weight: 1px;
+    }
+}
+  
+/* Media Query for low resolution  Tablets, Ipads */
+@media (min-width: 481px) and (max-width: 767px) {
+    .moduloP {
+        width:100%;
+    }
+    .moduloDetalle{
+    	font-weight: 1px;
+    }
+}
+  
+/* Media Query for Tablets Ipads portrait mode */
+@media (min-width: 768px) and (max-width: 1024px){
+    .moduloP {
+        width:50%;
+    }
+    .moduloDetalle{
+    	font-weight: 1px;
+    }
+}
+  
+/* Media Query for Laptops and Desktops */
+@media (min-width: 1025px) and (max-width: 1280px){
+    .moduloP {
+        width:25%;
+    }
+    .moduloDetalle{
+    	font-weight: 1px;
+    }
+}
+  
+/* Media Query for Large screens */
+@media (min-width: 1281px) {
+    
+}
+
+ 

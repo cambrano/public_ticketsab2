@@ -1,0 +1,194 @@
+<?php
+	include __DIR__."/../functions/security.php";
+	@session_start();
+	if (!empty($_POST)) {
+		foreach ($_POST['searchTable'][0] as $key => $value) {
+			$escapedValue = mysqli_real_escape_string($conexion, $value);
+			$_POST['searchTable'][0][$key] = $escapedValue;
+		}
+		$postData = json_encode($_POST);
+	}else{
+		$postData = "''";
+	}
+?>
+	<script type="text/javascript" language="javascript" >
+		$(document).ready(function() {
+			var responsive=true;
+			$(window).resize(function() {
+				var widthBrowser =$(window).width();
+				var heightBrowser =$(window).height();
+				//console.log("Tamaño de la pantalla del navegador: width="+widthBrowser +" height="+heightBrowser );
+				if(widthBrowser<820){
+					var responsive=true;
+				}else{
+					var responsive=false;
+				}
+			});
+			var dataTable = $('#directorios-tabla').DataTable( {
+				"destroy": true,
+				"responsive": true,
+				"pageLength": 11,
+				"retrieve": true,
+				"info": true,
+				"processing": true,
+				"sPaginationType": "full_numbers", 
+				"fixedHeader": true,
+				"fixedHeader": {
+					header: true,
+				},
+				"order": [[ 0, "desc" ]],
+				"ordering": true,
+				"searching": false,/* para el buscador*/
+				"paging": true,/* para la paginacion y todo salga en una sola hora*/
+				"aoColumnDefs": [
+								{ "bSortable": false, "aTargets": [ 15 ] }
+								],
+				"serverSide": true,
+				"scrollY": "100%", 
+				"scrollX": "100%",
+
+				"language": {
+					"sProcessing":     "Procesando...",
+					//"sLengthMenu":     "Mostrar _MENU_ registros",
+					"sLengthMenu": ' ',
+					"sSearch":         "Buscar:",
+					"sZeroRecords":    "Registro no encontrados",
+					"sEmptyTable":     "No Existe Registros",
+					"sInfo":           "Mostrar  (_START_ a _END_) de _TOTAL_ Registros",//
+					"sInfoEmpty":      "Mostrando Registros del 0 al 0 de Total de 0 Registros",//
+					"sInfoFiltered":   "(Filtrado de _MAX_ Total Registros)",//
+					//"sInfoPostFix":    "",
+					//"sUrl":            "",
+					//"sInfoThousands":  ",",
+					"sLoadingRecords": "Cargando...",
+					"oPaginate": {
+						"sFirst":    "<<",
+						"sLast":     ">>",
+						"sNext":     ">",
+						"sPrevious": "<"
+					},
+					"oAria": {
+						"sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+						"sSortDescending": ": Activar para ordenar la columna de manera descendente"
+					},
+				},
+				"ajax":{
+					url :"directorios/directorios.php", // json datasource
+					type: "post",  // method  , by default get
+					data: {
+						postData: <?php echo $postData; ?>
+					},
+					error: function(){  // error handling
+						$(".directorios-tabla-error").html("");
+						$("#directorios-tabla").append('<tbody class="directorios-tabla-error"><tr><th colspan="8">Registros no encontrados</th></tr></tbody>');
+						$("#directorios-tabla_processing").css("display","none");
+						
+					}
+				}
+			} );
+
+			$('#directorios-tabla').css( 'display', 'table' );
+			$('#directorios-tabla').resize();
+			$('#directorios-tabla').DataTable().columns.adjust().responsive.recalc();
+			$("#directorios-tabla_filter").css("display","none");  // hiding global search box
+			$('#selectCheckbox').on("click", function(event){ // triggering delete one by one
+				if( $('.checkselected:checked').length > 0 ){  // at-least one checkbox checked
+					var ids = [];
+					$('.checkselected').each(function(){
+						if($(this).is(':checked')){ 
+							ids.push($(this).val());
+						}
+					});
+					var ids_string = ids.toString();  // array to string conversion   
+					var link="directorios/index.php?cot="+ids_string;   
+					var link2="directorios/index.php";
+					dataString = 'urlink='+link2;  
+					$.ajax({
+						type: "POST",
+						url: "functions/backarray.php",
+						data: dataString,
+						success: function(data) { 	}
+					});
+					////
+					$("#homebody").load(link); 
+				}
+			});
+		});
+		function edit(valor){
+			link="directorios/update.php?id="+valor; 
+			var link2="directorios/update.php";
+			dataString = 'urlink='+link2;  
+			$.ajax({
+				type: "POST",
+				url: "functions/backarray.php",
+				data: dataString,
+				success: function(data) {}
+			});
+			//window.open(link,'AsignarEmpleado','width=480, height=350'); return false;
+			$("#homebody").load(link);
+		}
+
+		function add(){
+			////ajax
+			link="directorios/create.php";
+			var link2="directorios/create.php";
+			dataString = 'urlink='+link2;  
+			$.ajax({
+				type: "POST",
+				url: "functions/backarray.php",
+				data: dataString,
+				success: function(data) { 	}
+			});
+			////
+			$("#homebody").load(link);
+		}
+
+		function borrar(valor){
+			link="directorios/delete.php?id="+valor; 
+			var link2="directorios/delete.php";
+			dataString = 'urlink='+link2; 
+			$.ajax({
+				type: "POST",
+				url: "functions/backarray.php",
+				data: dataString,
+				success: function(data) {}
+			});
+			//window.open(link,'AsignarEmpleado','width=480, height=350'); return false;
+			$("#homebody").load(link);
+		}
+		function equipos_directorios(valor){
+			link="equiposDirectorios/index.php?cot="+valor+"&refresh=1"; 
+			var link2="equiposDirectorios/index.php";
+			dataString = 'urlink='+link2;  
+			$.ajax({
+				type: "POST",
+				url: "functions/backarray.php",
+				data: dataString,
+				success: function(data) {}
+				});
+			//window.open(link,'AsignarEmpleado','width=480, height=350'); return false;
+			$("#homebody").load(link);
+		}
+	</script> 
+	<table id="directorios-tabla" class="table table-striped table-bordered  cell-border compact stripe" style="width:100%">
+		<thead>
+			<tr>
+				<th>Clave</th>
+				<th>Dependencia</th>
+				<th>Sub Dependencia</th>
+				<th>Área</th>
+				<th>Puesto</th>
+				<th>Apellido Paterno</th>
+				<th>Apellido Materno</th>
+				<th>Nombre</th>
+				<th>Correo Electrónico</th>
+				<th>Whatsapp</th>
+				<th>Telefono</th>
+				<th>Telefono Ext</th>
+				<th>Celular</th>
+				<th>Fecha Nacimiento</th>
+				<th>Sexo</th>
+				<th>Opciones</th>
+			</tr> 
+		</thead> 
+	</table>

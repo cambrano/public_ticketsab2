@@ -1,0 +1,36 @@
+<?php
+// Cargamos la imagen a mostrar
+//$_SERVER['DOCUMENT_ROOT'];
+//$_GET['id_img']="Y6GWP1550733552tID10446611262976.png";
+$linkMain = 'https://'.$_SERVER['HTTP_HOST'];
+include __DIR__."/../admin/keySistema/dir.php";
+
+$file=$_GET['id_img'];
+if($file!=""){
+
+	$archivo= $_SERVER['DOCUMENT_ROOT']."/{$dir_base}/{$dir_produccion}/admin/ftpFiles/files/{$file}";
+	if (file_exists($archivo)){
+		$mime=mime_content_type($archivo);
+		header("Content-type: {$mime}");
+		header("Content-length: ".filesize($archivo));
+		header("Content-Disposition: inline; filename=$file");
+		readfile($archivo);
+	} else {
+		$archivo= $_SERVER['DOCUMENT_ROOT']."/{$dir_base}/{$dir_produccion}/admin/ftpFiles/file_roto.gif";
+		$mime=mime_content_type($archivo);
+		header("Content-type: {$mime}");
+		header("Content-length: ".filesize($archivo));
+		header("Content-Disposition: inline; filename=$file");
+		readfile($archivo);
+	}
+}else{
+	$archivo= $_SERVER['DOCUMENT_ROOT']."/{$dir_base}/{$dir_produccion}/admin/ftpFiles/file_roto.gif";
+	$mime=mime_content_type($archivo);
+	header("Content-type: {$mime}");
+	header("Content-length: ".filesize($archivo));
+	header("Content-Disposition: inline; filename=$file");
+	readfile($archivo);
+}
+
+
+//    http://localhost/vw/apapachoviajes/admin/ftpFiles/files/icono.gif

@@ -1,0 +1,587 @@
+		a:link {
+				color: #0000ff;
+				text-decoration:none; 
+		}
+
+		/* visited link */
+		a:visited {
+				color: #0000ff;
+				text-decoration:none; 
+		}
+
+		/* mouse over link */
+		a:hover {
+				color: #ffff;
+				text-decoration:none; 
+		}
+
+		/* selected link */
+		a:active {
+				color: #0000ff;
+				text-decoration:none; 
+		}
+
+		input[type=text] { 
+			-moz-border-radius: 5px;
+			-webkit-border-radius: 5px;
+			border-radius: 5px;
+			border: 1px solid #DDDDDD;
+			padding: 0 2px 0 2px;
+			height: 28px;
+			width: 240px;
+			outline: none; 
+			color: black;
+			width: 100%;
+		}
+
+		input[type=text]:focus   {
+			box-shadow: 0 0 10px #c5c5f2;
+			-webkit-box-shadow: 0 0 10px #c5c5f2;
+			-moz-box-shadow: 0 0 10px #c5c5f2;
+			border: 1px solid #DDDDDD;
+			width: 100%;
+			
+		}
+		input[type=password] { 
+			-moz-border-radius: 5px;
+			-webkit-border-radius: 5px;
+			border-radius: 5px; 
+			padding: 0 2px 0 2px;
+			height: 28px;
+			width: 240px;
+			outline: none;
+			border: 1px solid #DDDDDD;
+			width: 100%;
+		}
+		 
+		input[type=password]:focus   {
+			box-shadow: 0 0 10px #c5c5f2;
+			-webkit-box-shadow: 0 0 10px #c5c5f2;
+			-moz-box-shadow: 0 0 10px #c5c5f2;
+			border: 1px solid #DDDDDD;
+			width: 100%;
+			
+		}
+
+		select {
+			width: 240px;
+			border: 1px solid #cccccc;
+			background-color: #ffffff;
+			height: 30px;
+			color: #272626;
+			font-size: 14px;
+			border-radius: 5px;
+		}
+
+		input[type=button]{
+			/*background-color:rgb(116,183,183);*/
+			background-color:#dbdcff;
+			color: black;
+			text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+			display: inline-block;
+			padding: 4px 12px;
+			margin-bottom: 0;
+			font-size: 10px;
+			line-height: 20px;
+			text-align: center;
+			vertical-align: middle;
+			cursor: pointer;
+			border-radius: 5px;
+			border: none; 
+		}
+
+		input[type=button]:hover{
+			background-color:black;
+			color: #f3ea43;
+			text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+			display: inline-block;
+			padding: 4px 12px;
+			margin-bottom: 0;
+			font-size: 10px;
+			line-height: 20px;
+			text-align: center;
+			vertical-align: middle;
+			cursor: pointer;
+			border-radius: 5px;
+			border: none; 
+		}
+
+		input[type=button]:active{
+			/*background-color:rgb(244,148,1);
+			color: black;*/
+			background-color:#0000ff;
+			color: white;
+			text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+			display: inline-block;
+			padding: 4px 12px;
+			margin-bottom: 0;
+			font-size: 10px;
+			line-height: 20px;
+			text-align: center;
+			vertical-align: middle;
+			cursor: pointer;
+			border-radius: 5px;
+			border: none; 
+		}
+
+		.input_danger{
+			/*background-color:rgb(116,183,183);*/
+			background-color: #eb0808 !important;
+			color: rgb(255, 255, 255) !important;;
+			text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+			display: inline-block;
+			padding: 4px 12px;
+			margin-bottom: 0;
+			font-size: 10px;
+			line-height: 20px;
+			text-align: center;
+			vertical-align: middle;
+			cursor: pointer;
+			border-radius: 5px;
+			border: none; 
+		}
+
+		.input_danger:hover{
+			background-color:rgb(140, 4, 4) !important;
+			color: #f3ea43 !important;
+			text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+			display: inline-block;
+			padding: 4px 12px;
+			margin-bottom: 0;
+			font-size: 10px;
+			line-height: 20px;
+			text-align: center;
+			vertical-align: middle;
+			cursor: pointer;
+			border-radius: 5px;
+			border: none; 
+		}
+
+		.input_danger:active{
+			/*background-color:rgb(244,148,1);
+			color: black;*/
+			background-color:#7b0d0d !important;
+			color: white !important;
+			text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+			display: inline-block;
+			padding: 4px 12px;
+			margin-bottom: 0;
+			font-size: 10px;
+			line-height: 20px;
+			text-align: center;
+			vertical-align: middle;
+			cursor: pointer;
+			border-radius: 5px;
+			border: none; 
+		}
+
+		.labelForm{
+			color: black;
+			text-transform: uppercase;
+			letter-spacing: 5px;
+			font-weight: 10px;
+			font-size: 12px;
+		}
+
+		.tituloForm{
+			color:black;
+			text-align: left; 
+			text-transform: uppercase;
+			letter-spacing: 12px;
+			font-weight: bold;
+			font-size: 18px;
+		}
+
+		.descripcionForm{
+			color: gray;
+		}
+
+		.mensajeSolo {
+			padding: 10px; 
+			font-size: 8pt; 
+		}
+		.mensajeSucces {
+			padding: 10px;
+			background-color: #4CAF50; 
+			color: white;
+			font-size: 8pt;
+			cursor: pointer;
+		}
+
+		.mensajeSucces:hover{
+			padding: 10px;
+			background-color: #4CAF50; 
+			color: #DFFFFF;
+			font-size: 8pt;
+			cursor: pointer;
+		}
+
+		.mensajeInfo {
+			padding: 10px;
+			background-color: #d9edf7; 
+			color: gray;
+			font-size: 8pt;
+			cursor: pointer;
+		}
+
+		.mensajeInfo:hover{
+			padding: 10px;
+			background-color: #d9edf7; 
+			color: gray;
+			font-size: 8pt;
+			cursor: pointer;
+		}
+
+		.mensajeError {
+			padding: 10px;
+			background-color: #f44336; 
+			color: white;
+			font-size: 8pt;
+			cursor: pointer;
+		}
+
+		.mensajeError:hover{
+			padding: 10px;
+			background-color: #f44336; 
+			color: #DFFFFF;
+			font-size: 8pt;
+			cursor: pointer;
+		}
+
+		.mensajeWarning {
+			padding: 10px;
+			background-color: #fff3cd; 
+			color: #856404;
+			font-size: 8pt;
+			cursor: pointer;
+		}
+
+		.mensajeWarning:hover{
+			padding: 10px;
+			background-color: #f0ad4e; 
+			color: #DFFFFF;
+			font-size: 8pt;
+			cursor: pointer;
+		}
+
+		.mensajeDark {
+			padding: 10px;
+			background-color: #d6d8d9; 
+			color: #1b1e21;
+			font-size: 8pt;
+			cursor: pointer;
+		}
+
+		.mensajeDark:hover{
+			padding: 10px;
+			background-color: #d6d8d9; 
+			color: #1b1e21;
+			font-size: 8pt;
+			cursor: pointer;
+		}
+
+		.atras{
+			background-image: url('../img/back_h.png');
+			color: red;
+			background-size: 90px; 
+			background-repeat:no-repeat; 
+			background-position:top;  
+			display:block;
+			width: 90px;
+			height: 35px;
+			float: left;
+			margin: 10px;
+		}
+
+		.atras:hover{
+			background-image: url('../img/back_n.png');
+				color: red;
+				background-size: 90px; 
+				background-repeat:no-repeat; 
+			background-position:top;  
+				display:block;
+				width: 90px;
+				height: 35px;
+				float: left;
+				margin: 10px;
+		}
+
+		.cerrar{
+			background-image: url('../img/logout_h.png');
+			color: red;
+			background-size: 90px; 
+			background-repeat:no-repeat; 
+			background-position:top;  
+			display:block;
+			width: 90px;
+			height: 35px;
+			float: left;
+			margin: 10px;
+		}
+
+		.cerrar:hover{
+			background-image: url('../img/logout_n.png');
+				color: red;
+				background-size: 90px; 
+				background-repeat:no-repeat; 
+			background-position:top;  
+				display:block;
+				width: 90px;
+				height: 35px;
+				float: left;
+				margin: 10px;
+		}
+
+		.flashVerde{
+			margin-top: 3px;
+			margin-bottom: 3px;
+			background-color: #dff0d8;
+			padding: 5px;
+			color: #3c763d;
+			border-style: solid; 
+			border-width: 1px;
+			border-color: #d6e9c6;
+			text-transform: uppercase;
+			letter-spacing: 5px;
+			font-weight: 10px;
+			font-size: 12px;
+		}
+
+		.flashAzul{
+			margin-top: 3px;
+			margin-bottom: 3px;
+			background-color: #d9edf7;
+			padding: 5px;
+			color: #4070a2;
+			border-style: solid; 
+			border-width: 1px;
+			border-color: #bce8f1;
+			text-transform: uppercase;
+			letter-spacing: 5px;
+			font-weight: 10px;
+			font-size: 12px;
+		}
+		.flashAmarillo{
+			margin-top: 3px;
+			margin-bottom: 3px;
+			background-color: #fcf8e3;
+			padding: 5px;
+			color: #f8d06f;
+			border-style: solid; 
+			border-width: 1px;
+			border-color: #faebcc;
+			text-transform: uppercase;
+			letter-spacing: 5px;
+			font-weight: 10px;
+			font-size: 12px;
+		}
+		.flashRojo{
+			margin-top: 3px;
+			margin-bottom: 3px;
+			background-color: #f2dede;
+			padding: 5px;
+			color: #c24d42;
+			border-style: solid; 
+			border-width: 1px;
+			border-color: #ebccd1;
+			text-transform: uppercase;
+			letter-spacing: 5px;
+			font-weight: 10px;
+			font-size: 12px;
+		} 
+
+		.alertaDivAzul{
+		 
+			margin-top: 3px;
+			margin-bottom: 3px;
+			margin-left: 3px;
+			margin-right: : 3px;
+			background-color: #d9edf7;
+			padding: 5px;
+			color: #4070a2;
+			border-style: solid; 
+			border-width: 1px;
+			border-color: #bce8f1;
+			cursor: pointer;
+			float: left;
+			/*white-space:nowrap; 
+			text-overflow:ellipsis;
+			white-space:nowrap; 
+			overflow:hidden; */
+			text-transform: uppercase;
+			letter-spacing: 5px;
+			font-weight: 10px;
+			font-size: 12px;
+		}
+		.alertaDivAzul:hover{
+			
+			margin-top: 3px;
+			margin-bottom: 3px;
+			margin-left: 3px;
+			margin-right: : 3px;
+			background-color: #dff0d8;
+			padding: 5px;
+			color: #3c763d;
+			border-style: solid; 
+			border-width: 1px;
+			border-color: #d6e9c6;
+			float: left;
+			overflow:visible; 
+			white-space: initial;
+			text-transform: uppercase;
+			letter-spacing: 5px;
+			font-weight: 10px;
+			font-size: 12px;
+		}
+
+		 .fileupload {
+				width: 150px; 
+				padding: 5px;
+				position: relative;
+				color:  black;
+				overflow: hidden;
+				background-color: #dbdcff; /* and other things to make it pretty */
+				border: 1px solid #dbdcff;
+				border-radius: 5px;
+				font-size: 12px;
+		}
+		 .fileupload:hover {
+				 width: 150px; 
+				padding: 5px;
+				position: relative;
+				color:  white;
+				overflow: hidden;
+				background-color: gray; /* and other things to make it pretty */
+				/*border: 1px solid yellow;*/
+				border-radius: 5px;
+				font-size: 12px;
+		}
+
+		.fileupload input {
+				position: absolute;
+				top: 0;
+				right: 0; /* not left, because only the right part of the input seems to
+										 be clickable in some browser I can't remember */
+				cursor: pointer;
+				opacity: 0.0;
+				filter: alpha(opacity=0); /* and all the other old opacity stuff you
+																		 want to support */
+				font-size: 300px; /* wtf, but apparently the most reliable way to make
+														 a large part of the input clickable in most browsers */
+				height: 200px;
+		}
+		.whatsappbutton{
+		}
+		.whatsappbutton:hover{
+			background: rgba(0, 0, 0, 0.5);
+		}
+		.sucFormTitulo{
+			float: left;
+			position: relative;
+			margin-right: 5px;
+			margin-bottom: 5px;
+			width: 100%; 
+			background-color: #e3edfc; 
+			padding: 5px;
+		}
+
+		.sucForm{
+			float: left;
+			position: relative;
+			margin-right: 5px;
+			margin-bottom: 5px;
+			padding: 2px;
+		}
+		.BotonWorkFlow{
+			color:white !important;
+			background-color:#04AA6D!important;
+		}
+		.BotonWorkFlow:hover{
+			color:white !important;
+			background-color:#8f96a3!important;
+		}
+		.BotonWorkFlow:active{
+			color:yellow !important;
+			background-color:#04AA6D!important;
+		}
+		.BotonWorkFlowUnit{
+			color:white !important;
+			background-color:#04AA6D!important;
+		}
+		.BotonWorkFlowUnit:hover{
+			color:white !important;
+			background-color:#8f96a3!important;
+		}
+		.BotonWorkFlowUnit:active{
+			color:yellow !important;
+			background-color:#04AA6D!important;
+		}
+		.workFlowBotones,.workFlowTitulo{
+			float: left;
+			padding: 5px 10px 0px 0px;
+		}
+		@media only screen and (max-width:820px) {
+			/* For mobile phones: */
+			.sucForm,.sucFormTitulo{
+				width: 100%;
+			}
+			.myselect{
+				width: 100%;
+			}
+			.workFlowBotones,.workFlowTitulo{
+				width: 100%;
+				text-align: center !important;
+			}
+			.workFlowBotones{
+				padding: 0px 0px 5px 0px;
+			}
+			.BotonWorkFlow{
+				width: 45% !important;
+			}
+			.BotonWorkFlowUnit{
+				width: 100% !important;
+			}
+			/* For mobile phones: */
+			input[type=text],select,input[type=password]{
+				width: 100%;
+				margin-top: 5px;
+				margin-bottom: 5px;
+				height: 40px;
+				font-size: 12pt;
+			}
+
+			.fileupload,.fileupload:hover{
+				width: 100%;
+				text-transform: uppercase;
+			}
+
+			input[type=button]{
+				width: 100%;
+				margin-top: 10px;
+				height: 40px;
+				text-transform: uppercase;
+			}
+
+			.alertaDivAzul,.fileupload{
+				font-size: 8px;
+			}
+			 .fileupload,.fileupload:hover{
+				font-size: 12px;
+				padding: 8px;
+				text-align: center;
+			}
+			.tituloForm{
+				font-size: 18px;
+				letter-spacing: 4px;
+				font-weight: bold;
+				text-align: center;
+			}
+			.select2 {
+				width: 100%;
+				margin-top: 5px;
+				margin-bottom: 5px;
+				height: 40px;
+				font-size: 12pt;
+			}
+		}
+

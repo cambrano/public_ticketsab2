@@ -1,0 +1,44 @@
+RewriteEngine On
+RewriteBase /api/
+
+# Redirigir www a no-www
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+# Redirigir todas las solicitudes de archivos sin extensión a la versión con extensión
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+Order Deny,Allow
+Deny from 205.0.0.0/8
+Deny from 65.154.0.0/16
+Deny from 152.136.0.0/16
+Deny from 130.211.0.0/16
+Deny from 34.140.0.0/16
+Deny from 34.140.0.0/16
+Deny from 34.22.0.0/16
+Deny from 34.76.0.0/16
+Deny from 34.78.0.0/16
+Deny from 34.78.0.0/16
+Deny from 34.78.0.0/16
+Deny from 34.79.0.0/16
+Deny from 35.189.0.0/16
+Deny from 35.205.0.0/16
+Deny from 35.205.0.0/16
+Deny from 35.205.0.0/16
+Deny from 35.205.0.0/16
+Deny from 35.233.0.0/16
+Deny from 35.233.0.0/16
+Deny from 35.233.0.0/16
+Deny from 35.240.0.0/16
+Deny from 35.241.0.0/16
+
+# Bloquea todos los robots (cualquier agente de usuario)
+# HTTP_USER_AGENT se refiere al agente de usuario del navegador o robot
+# La expresión regular ^.*$ coincide con cualquier agente de usuario
+# La regla "^ -" no realiza una reescritura y simplemente coloca un guion como destino
+# [F,L] indica que la respuesta será "403 Forbidden" (prohibido) y la regla es la última (L)
+# Bloquea todos los agentes de usuario excepto los navegadores web comunes
+#RewriteCond %{HTTP_USER_AGENT} !^(Mozilla|Opera|AppleWebKit|Chrome|Safari|Postman) [NC]
+#RewriteRule ^ - [F,L]

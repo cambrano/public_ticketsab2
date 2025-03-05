@@ -1,0 +1,124 @@
+	@charset "utf-8";
+
+	.div50Reporte{
+		width: 50%; 
+		display: inline-block;
+		padding: 5px ;
+		text-align: left;
+	}
+
+	.div100Reporte{
+		width: 100%; 
+		display: inline-block;
+		padding: 5px ;
+		text-align: left;
+	}
+
+	.moduloBlanco{ 
+		/*background-color: #f2dede;*/ 
+		/*color: #c24d42;*/
+		border-style: solid; 
+		border-width: 1px;
+		/*border-color: #ebccd1;*/ 
+		text-transform: uppercase;
+		letter-spacing: 5px;
+		font-weight: 10px;
+		font-size: 12px;
+		color: black;
+		background-color: white;
+		border-color: #ffffff;
+		font-family: 'Avenir Next';
+		width: 100%;
+	}
+
+	.moduloBlanco .moduloTitulo{
+		padding: 10px;
+		text-align: left;
+		letter-spacing: 2px; 
+		color: black;
+		font-size: 14px;
+		font-weight: bold;
+		font-family: 'Avenir Next';
+	}
+
+	.moduloBlanco ul{
+		text-align: left;
+		letter-spacing: 5px; 
+		color: black;
+		font-size: 12px;
+		padding: 5px;
+		font-weight: bold;
+		font-family: 'Avenir Next';
+	}
+
+	.moduloBody{ 
+		text-align: left;
+		letter-spacing: 5px; 
+		color: black; 
+		border:none;
+		font-size: 9px;
+		font-family: 'Avenir Next'; 
+		display: table; 
+		width: 100%
+	}
+
+	.linkReporte{ 
+		cursor: pointer;
+		letter-spacing: 5px; 
+		color: black;
+		font-size: 12px;
+		font-weight: bold;
+		font-family: 'Avenir Next';
+		padding-left: 8px;
+	}
+	.NOlinkReporte{ 
+		letter-spacing: 5px; 
+		color: black;
+		font-size: 12px;
+		font-weight: bold;
+		font-family: 'Avenir Next';
+		padding-left: 8px;
+	}
+
+	.linkReporte:hover{
+		 
+		cursor: pointer;
+		letter-spacing: 5px; 
+		color: black;
+		font-size: 12px;
+		font-weight: bold;
+		font-family: 'Avenir Next';
+		background-color: #DCDCDC;
+	}
+
+	.linkReporte:active{ 
+		cursor: pointer;
+		letter-spacing: 5px; 
+		color: black;
+		font-size: 12px;
+		font-weight: bold;
+		font-family: 'Avenir Next';
+		background-color: #8a918a;
+	}
+
+	.noselect {
+		padding: 2px;
+		-webkit-touch-callout: none; /* iOS Safari */
+		-webkit-user-select: none; /* Safari */
+		-khtml-user-select: none; /* Konqueror HTML */
+		-moz-user-select: none; /* Firefox */
+		-ms-user-select: none; /* Internet Explorer/Edge */
+		user-select: none; /* Non-prefixed version, currently
+		supported by Chrome and Opera */
+	}
+	
+  @media only screen and (max-width:992px) {
+  /* For mobile phones: */
+  .div50Reporte{
+  	width: 100%;
+  }
+   .div100Reporte{
+  	width: 100%;
+  }
+  
+}

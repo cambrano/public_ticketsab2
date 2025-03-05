@@ -1,0 +1,27 @@
+.page-loader {
+	position: fixed;
+	width: 100%;
+	z-index: 9998;
+	background: rgba(0,0,0, 0.8);
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.loader {
+	position: fixed;
+	top: 20%;
+	width: 426px;
+	height: 426px;
+	z-index: 9999;
+	background: rgba(0,0,0, 0.8);
+}
+
+.loader,
+.loader:after {
+	width: 426px;
+	height: 426px;
+	background: rgba(0,0,0, 0.8);
+}
