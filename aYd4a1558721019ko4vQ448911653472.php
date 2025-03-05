@@ -1,5 +1,6 @@
 <?php
 if(!empty($_POST)){
+	
 	$info=$_POST['info'][0];
 	$codigo_plataforma32='Odwty1613011468X97BM464547302784';
 	$stringValid='083T0dTMz+HH5M/P4tbQ0crWm9G6p5Gwk6eWoKiekpyaoMSfr6a6oZapk6KmmpqdmZqj';
