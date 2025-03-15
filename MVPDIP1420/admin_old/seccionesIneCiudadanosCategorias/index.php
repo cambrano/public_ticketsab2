@@ -1,0 +1,172 @@
+<?php
+	include __DIR__."/../functions/security.php";
+	include '../functions/usuario_permisos.php';
+	include __DIR__."/../functions/redirect_security.php";
+	include __DIR__."/../functions/genid.php";
+	include __DIR__."/../functions/secciones_ine_ciudadanos.php";
+	include __DIR__."/../functions/tipos_categorias_ciudadanos.php";
+	include __DIR__."/../functions/secciones_ine_ciudadanos_categorias.php";
+	include __DIR__."/../functions/plataformas.php";
+
+	@session_start();
+	$_SESSION['Paguinasub']="seccionesIneCiudadanosCategorias/index.php";
+	if(!empty($_GET['cot'])){
+		$id_seccion_ine_ciudadano=$_GET['cot'];
+		$_SESSION['id_seccion_ine_ciudadano']=$id_seccion_ine_ciudadano;
+	}else{
+		$id_seccion_ine_ciudadano=$_SESSION['id_seccion_ine_ciudadano']; 
+	}
+	validar_plataforma_vista($id_seccion_ine_ciudadano,'secciones_ine_ciudadanos','seccionesIneCiudadanos','index',$codigo_plataforma);
+
+	if($id_seccion_ine_ciudadano!=""){
+		$id_seccion_ine_ciudadano;
+		$seccion_ine_ciudadanoDatos = seccion_ine_ciudadanoDatos($id_seccion_ine_ciudadano);
+		$nombre_completo = $seccion_ine_ciudadanoDatos['nombre_completo'];
+	}else{
+		echo $redirectSecurity=redirectSecurity($id_seccion_ine_ciudadano,'secciones_ine_ciudadanos','seccionesIneCiudadanos','index');
+		if($redirectSecurity!=""){
+			die;
+		}
+	}
+
+	$tipos_categorias_ciudadanosDatos = tipos_categorias_ciudadanosDatos();
+
+	$secciones_ine_ciudadanos_categoriasDatos = secciones_ine_ciudadanos_categoriasDatos('',$id_seccion_ine_ciudadano);
+
+	$permiso="insert";
+	foreach ($tipos_categorias_ciudadanosDatos as $key => $value) {
+		foreach ($secciones_ine_ciudadanos_categoriasDatos as $keyT => $valueT) {
+			if($tipos_categorias_ciudadanosDatos[$key]['id'] == $valueT['id_tipo_categoria_ciudadano']){
+				$tipos_categorias_ciudadanosDatos[$key]['checked']="checked";
+				$permiso='update';
+			}
+		}
+	}
+
+	if($secciones_ine_ciudadanos_categoriasDatos[0]['clave']==""){
+		$secciones_ine_ciudadanos_categoriasDatos[0]['clave'] = $tran_cod;
+	}
+	?>
+	<title>Ciudadano Categoría</title>
+	<script language="javascript" type="text/javascript">
+		function cerrar(){
+			<?php
+			if(empty($_SESSION['page_secciones_ine_ciudadanos_seccion'])){
+				echo "$('#homebody').load('seccionesIneCiudadanos/index.php?refresh=1');";
+			}else{
+				echo "$('#homebody').load('seccionesIneCiudadanosSeccion/index.php?refresh=1');";
+			}
+			?>
+		}
+		function guardar() {
+			document.getElementById("sumbmit").disabled = true;
+			document.getElementById("mensaje").classList.remove("mensajeSucces");
+			document.getElementById("mensaje").classList.remove("mensajeError");
+			$("#mensaje").html("&nbsp");
+
+
+			var id_seccion_ine_ciudadano = "<?= $id_seccion_ine_ciudadano ?>"; 
+			if(id_seccion_ine_ciudadano == ""){
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Id Ciudadano Requerido requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+
+
+			var clave = document.getElementById("clave").value; 
+			if(clave == ""){
+				document.getElementById("clave").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Clave requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+
+
+			var tipo_categoria_ciudadano = [];
+
+			<?php
+			foreach ($tipos_categorias_ciudadanosDatos as $key => $value) {
+				?>
+				var id_tipo_categoria_ciudadano_<?= $value['id'] ?> = document.getElementById("id_tipo_categoria_ciudadano_<?= $value['id'] ?>").checked;
+				if(id_tipo_categoria_ciudadano_<?= $value['id'] ?>){
+					id_tipo_categoria_ciudadano_<?= $value['id'] ?> = 1;
+				}else{
+					id_tipo_categoria_ciudadano_<?= $value['id'] ?> = 0;
+				}
+
+				var id_tipo_categoria_ciudadano = "<?= $value['id'] ?>";
+
+				var data = { 
+					'id_tipo_categoria_ciudadano' : id_tipo_categoria_ciudadano,
+					'valor' : id_tipo_categoria_ciudadano_<?= $value['id'] ?>,
+					'id_seccion_ine_ciudadano' : id_seccion_ine_ciudadano,
+					'clave' : clave,
+				}
+				tipo_categoria_ciudadano.push(data);
+				<?php
+			}
+			?>
+
+			$.ajax({
+					type: "POST",
+					url: "seccionesIneCiudadanosCategorias/db_add_update.php",
+					data: {tipo_categoria_ciudadano: tipo_categoria_ciudadano},
+					success: function(data) {
+						if(data=="SI"){ 
+							document.getElementById("sumbmit").disabled = true;
+							$("#mensaje").html("Guardado con éxito"); 
+							document.getElementById("mensaje").classList.add("mensajeSucces");
+							<?php
+							if(empty($_SESSION['page_secciones_ine_ciudadanos_seccion'])){
+								echo "$('#homebody').load('seccionesIneCiudadanos/index.php?refresh=1');";
+							}else{
+								echo "$('#homebody').load('seccionesIneCiudadanosSeccion/index.php?refresh=1');";
+							}
+							?>
+						}else{
+							document.getElementById("mensaje").classList.add("mensajeError");
+							document.getElementById("sumbmit").disabled = false;
+							$("#mensaje").html(data);
+						}
+					}
+				});
+
+		}
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#mensaje").click(function(event) { 
+				document.getElementById("mensaje").classList.remove("mensajeSucces");
+				document.getElementById("mensaje").classList.remove("mensajeError");
+				$("#mensaje").html("&nbsp");
+			});
+		});
+	</script>
+	<div class="bodymanager" id="bodymanager" style="display: table;"> 
+		<div class="submenux" onclick="subConfiguracionPadrones()">Sistema Único De Beneficiarios</div> / 
+		<div class="submenux" onclick="subSeccionesIneCiudadanos()">Ciudadanos</div> /
+		<?php
+		if(!empty($_SESSION['page_secciones_ine_ciudadanos_seccion'])){
+			echo '<div class="submenux" onclick="subSeccionesIneCiudadanosSeccion()">Ciudadanos Sección</div> /';
+		}
+		?>
+		<br>
+		<div id="mensaje" class="mensajeSolo" ><br></div>
+		<div class="bodyform">
+			<div class= "bodyheader">
+				<label class="tituloForm">
+					<font style="font-size: 25px;">Ciudadano Categoría</font>
+				</label><br>
+				<label class="descripcionForm">
+					<font style="font-size: 13px;">Por favor, complete el siguiente formulario para las categorías .</font><br>
+				</label><br>
+				<h2><?= $nombre_completo ?> </h2>
+				<font style="font-size: 15px;"><strong></strong></font>
+			</div>
+		</div> 
+		<div class="bodyinput">
+			<?php include "form.php";?>
+		</div>
+	</div>

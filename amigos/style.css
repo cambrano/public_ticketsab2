@@ -1,0 +1,56 @@
+    <style>
+        body {
+            background-color: #fafbfd;
+            color: black; /* Texto en color blanco */
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background-color: #fafbfd; /* Color de fondo del contenedor */
+            border-radius: 5px;
+            padding: 20px;
+            margin-left: auto; /* Centrar el formulario horizontalmente */
+            margin-right: auto; /* Centrar el formulario horizontalmente */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.8); /* Sombreado */
+            margin: 0 auto; /* Margen horizontal automático para centrar */
+        }
+        @media only screen and (max-width:750px) {
+            .container {
+                background-color: #fafbfd; /* Color de fondo del contenedor */
+                border-radius: 5px;
+                padding: 20px;
+                margin-left: auto; /* Centrar el formulario horizontalmente */
+                margin-right: auto; /* Centrar el formulario horizontalmente */
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombreado */
+                margin: 0 auto; /* Margen horizontal automático para centrar */
+                max-width: 450px; /* Ancho máximo del formulario */
+            }
+        }
+        /* Estilo para las imágenes de candidatos */
+        .preview-image {
+            max-width: 100%; /* Las imágenes no superarán el ancho del contenedor */
+            height: auto; /* Mantener la proporción original de la imagen */
+            display: block; /* Evitar espacios en blanco debajo de las imágenes */
+            transition: all 0.3s ease; /* Agrega una transición suave para la animación */
+            padding:10px;
+            background-color:gray
+        }
+
+        /* Estilo para las imágenes de candidatos al pasar el mouse sobre ellas */
+        .preview-image:hover {
+            transform: scale(1.1); /* Escala la imagen al 110% del tamaño original al pasar el mouse sobre ella */
+        }
+
+        /* Asegúrate de que las imágenes de INE también sean responsivas */
+        .preview-image-ine {
+            max-width: 100%; /* Las imágenes no superarán el ancho del contenedor */
+            height: auto; /* Mantener la proporción original de la imagen */
+            display: block; /* Evitar espacios en blanco debajo de las imágenes */
+        } 
+        .nombre_candidato{
+            font-weight: bold;
+            color:#d3b169;
+        }
+        .nombre_candidato_items{
+            color:#000000;
+        }
+    </style>

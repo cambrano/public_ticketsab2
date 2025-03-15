@@ -1,0 +1,403 @@
+<?php
+	include __DIR__."/../functions/security.php";
+	include __DIR__."/../functions/redirect_security.php";
+	include __DIR__."/../functions/claves.php";
+	include __DIR__."/../functions/paises.php";
+	include __DIR__."/../functions/estados.php";
+	include __DIR__."/../functions/municipios.php";
+	include __DIR__."/../functions/localidades.php";
+	include __DIR__."/../functions/secciones_ine_actividades.php";
+	include __DIR__."/../functions/secciones_ine.php";
+	include __DIR__."/../functions/secciones_ine_parametros.php";
+	include __DIR__."/../functions/tipos_infraestructuras.php";
+	include __DIR__."/../functions/unidades_medidas.php";
+	include __DIR__."/../functions/empresas_adjudicadas.php";
+	include __DIR__."/../functions/supervisores.php";
+
+	@session_start();
+	$_SESSION['Paguinasub']="seccionesIneActividades/update.php";
+	if(!empty($_GET)){
+		$id=$_SESSION['paguinaId']=$_GET['id'];
+	}else{
+		$id=$_SESSION['paguinaId'];
+	}
+	echo $redirectSecurity=redirectSecurity($id,'secciones_ine_actividades','seccionesIneActividades','index');
+	if($redirectSecurity!=""){
+		die;
+	}
+	$claveF= clave('secciones_ine_actividades');
+	$seccion_ine_actividadDatos=seccion_ine_actividadDatos($id);
+	if($seccion_ine_actividadDatos['clave']==""){
+		$seccion_ine_actividadDatos['clave']=$claveF['clave'];
+	}
+
+	$seccion_ine_actividadDatos['monto_total']=number_format($seccion_ine_actividadDatos['monto_total'],2,".",",");
+	$seccion_ine_actividadDatos['beneficiarios']=number_format($seccion_ine_actividadDatos['beneficiarios'],0,"",",");
+	$seccion_ine_actividadDatos['meta_cantidad']=number_format($seccion_ine_actividadDatos['meta_cantidad'],0,"",",");
+
+	//var_dump($seccion_ine_actividadDatos);
+	$permiso="update"; 
+?>
+	<title>Update</title>
+	<script language="javascript" type="text/javascript">
+		function cerrar(){
+			$("#homebody").load('seccionesIneActividades/index.php');
+		}
+
+		function guardar() {
+			document.getElementById("sumbmit").disabled = true;
+			document.getElementById("mensaje").classList.remove("mensajeSucces");
+			document.getElementById("mensaje").classList.remove("mensajeError");
+			$("#mensaje").html("&nbsp");
+			var coma= /,/g;
+			var espacios_invalidos= /\s+/g;
+
+			var id = '<?= $id ?>'; 
+			if(id == ""){
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Id requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+
+			var clave = document.getElementById("clave").value; 
+			if(clave == ""){
+				document.getElementById("clave").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Clave requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+
+			var folio = document.getElementById("folio").value; 
+			if(folio == ""){
+				document.getElementById("folio").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Folio requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+
+			var nombre = document.getElementById("nombre").value; 
+			if(nombre == ""){
+				document.getElementById("nombre").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Nombre requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+
+			var numero_contrato = document.getElementById("numero_contrato").value; 
+			if(numero_contrato == ""){
+				document.getElementById("numero_contrato").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Número de contrato requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+
+			var cedula = document.getElementById("cedula").value; 
+			if(cedula == ""){
+				document.getElementById("cedula").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Cédula requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+
+			var id_empresa_adjudicada = document.getElementById("id_empresa_adjudicada").value; 
+			if(id_empresa_adjudicada == ""){
+				document.getElementById("id_empresa_adjudicada").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Empresa Adjuducada requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+
+			var fecha_inicio = document.getElementById("fecha_inicio").value; 
+			if(fecha_inicio == ""){
+				document.getElementById("fecha_inicio").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Fecha Inicio requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}else{
+				if(!fechaValida(fecha_inicio)){ 
+					$("#mensaje").html("Fecha Inicio Válida requerido");
+					document.getElementById("sumbmit").disabled = false;
+					document.getElementById("mensaje").classList.add("mensajeError");
+					document.getElementById("fecha_inicio").focus(); 
+					return false;
+				}
+			}
+
+			var fecha_final = document.getElementById("fecha_final").value; 
+			if(fecha_final == ""){
+				document.getElementById("fecha_final").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Fecha Inicio requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}else{
+				if(!fechaValida(fecha_final)){ 
+					$("#mensaje").html("Fecha Inicio Válida requerido");
+					document.getElementById("sumbmit").disabled = false;
+					document.getElementById("mensaje").classList.add("mensajeError");
+					document.getElementById("fecha_final").focus(); 
+					return false;
+				}
+			}
+
+
+			if( (fecha_inicio > fecha_final ) && (fecha_inicio !='' && fecha_final !=''  )  ){
+				document.getElementById("fecha_inicio").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Fecha Inicio debe ser menor a Fecha Final");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+
+			var monto_total = document.getElementById("monto_total").value; 
+			var monto_total=  monto_total.replace(coma,'');
+			if(monto_total == ""){
+				document.getElementById("monto_total").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Monto Total requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			} 
+
+			var beneficiarios = document.getElementById("beneficiarios").value; 
+			var beneficiarios=  beneficiarios.replace(coma,'');
+			if(beneficiarios == ""){
+				document.getElementById("beneficiarios").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Beneficiarios requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+
+			var meta_cantidad = document.getElementById("meta_cantidad").value; 
+			var meta_cantidad=  meta_cantidad.replace(coma,'');
+			if(meta_cantidad == ""){
+				document.getElementById("meta_cantidad").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Meta Cantidad requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+
+			var id_unidad_medida = document.getElementById("id_unidad_medida").value; 
+			if(id_unidad_medida == ""){
+				document.getElementById("id_unidad_medida").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Meta Unidad requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			} 
+
+			var tipo = document.getElementById("tipo").value; 
+			if(tipo == ""){
+				document.getElementById("tipo").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Tipo requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+
+			var id_tipo_infraestructura = document.getElementById("id_tipo_infraestructura").value; 
+			if(id_tipo_infraestructura == ""){
+				document.getElementById("id_tipo_infraestructura").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Tipo Infraestructura requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+
+
+			var id_supervisor = document.getElementById("id_supervisor").value; 
+			if(id_supervisor == ""){
+				document.getElementById("id_supervisor").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("supervisor requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+
+			var observaciones = document.getElementById("observaciones").value;
+
+			var id_seccion_ine = document.getElementById("id_seccion_ine").value; 
+			if(id_seccion_ine == ""){
+				document.getElementById("id_seccion_ine").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Sección requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+
+			var id_pais = document.getElementById("id_pais").value; 
+			if(id_pais == ""){
+				document.getElementById("id_pais").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Pais requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+
+			//alert(codigo_postal);
+			var id_estado = document.getElementById("id_estado").value; 
+			if(id_estado == ""){
+				document.getElementById("id_estado").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Estado requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+
+			//alert(id_estado);
+			var id_municipio = document.getElementById("id_municipio").value; 
+			if(id_municipio == ""){
+				document.getElementById("id_municipio").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Municipio requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+			//alert(id_municipio);
+
+			//alert(id_municipio);
+			var id_localidad = document.getElementById("id_localidad").value; 
+			if(id_localidad == ""){
+				document.getElementById("id_localidad").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Localidad requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+			var calle = document.getElementById("calle").value; 
+			if(calle == ""){
+				document.getElementById("calle").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Calle requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+			var num_ext = document.getElementById("num_ext").value;
+			var num_int = document.getElementById("num_int").value;
+			//alert(calle);
+			var colonia = document.getElementById("colonia").value; 
+			if(colonia == ""){
+				document.getElementById("colonia").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Colonia requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+			var codigo_postal = document.getElementById("codigo_postal").value;
+			codigo_postal = codigo_postal.replace(espacios_invalidos, '');
+			if(codigo_postal == ""){
+				document.getElementById("codigo_postal").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Codigo Postal requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+			var longitud = document.getElementById("longitud").value;
+			var latitud = document.getElementById("latitud").value;
+
+			var longitud_r = document.getElementById("longitud_r").value;
+			var latitud_r = document.getElementById("latitud_r").value;
+
+			var seccion_ine_actividad = []; 
+			var data = {    
+					'id' : id,
+					'clave' : clave,
+					'folio' : folio,
+					'nombre' : nombre,
+					'id_seccion_ine' : id_seccion_ine,
+					'tipo' : tipo,
+					'observaciones' : observaciones,
+					'id_pais' : id_pais,
+					'id_estado' : id_estado,
+					'id_municipio' : id_municipio,
+					'id_localidad' : id_localidad,
+					'calle' : calle,
+					'num_int' : num_int,
+					'num_ext' : num_ext,
+					'colonia' : colonia, 
+					'codigo_postal' : codigo_postal,
+					'latitud' : latitud,
+					'longitud' : longitud,
+					'latitud_r' : latitud_r,
+					'longitud_r' : longitud_r,
+					'id_tipo_infraestructura' : id_tipo_infraestructura,
+					'monto_total' : monto_total,
+					'beneficiarios' : beneficiarios,
+					'meta_cantidad' : meta_cantidad,
+					'id_unidad_medida' : id_unidad_medida,
+
+					'numero_contrato' : numero_contrato,
+					'cedula' : cedula,
+					'id_empresa_adjudicada' : id_empresa_adjudicada,
+					'fecha_inicio' : fecha_inicio,
+					'fecha_final' : fecha_final,
+					'id_supervisor' : id_supervisor,
+				}
+			seccion_ine_actividad.push(data);
+
+			$.ajax({
+				type: "POST",
+				url: "seccionesIneActividades/db_edit.php",
+				data: {seccion_ine_actividad: seccion_ine_actividad},
+				success: function(data) {
+					//document.getElementById("form").reset();  
+					//document.getElementById("form").style.border="";
+					//
+					if(data=="SI"){
+						document.getElementById("sumbmit").disabled = true;
+						document.getElementById("mensaje").classList.remove("mensajeError");
+						$("#mensaje").html("&nbsp;");
+						$("#mensaje").html("Guardado con éxito"); 
+						document.getElementById("mensaje").classList.add("mensajeSucces");
+						$("#homebody").load('seccionesIneActividades/index.php');
+					}else{
+						if(data==""){
+							$("#homebody").load('seccionesIneActividades/index.php');
+						}else{
+							$("#mensaje").html(data);
+							document.getElementById("mensaje").classList.add("mensajeError");
+							document.getElementById("sumbmit").disabled = false;
+						}
+						
+					}
+				}
+			});
+		}  
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#mensaje").click(function(event) { 
+				document.getElementById("mensaje").classList.remove("mensajeSucces");
+				document.getElementById("mensaje").classList.remove("mensajeError");
+				$("#mensaje").html("&nbsp");
+			});
+		});
+	</script>
+	<div class="bodymanager" id="bodymanager"> 
+		<div id="mensaje" class="mensajeSolo" ><br></div>
+		<div class="bodyform">
+			<div class= "bodyheader">
+				<label class="tituloForm">
+					<font style="font-size: 25px;">Modificar Acción u Obras</font>
+				</label><br>
+				<label class="descripcionForm">
+					<font style="font-size: 13px;">Campos para modificar a acción u obras.</font><br><br>
+				</label><br>
+				<font style="font-size: 15px;"><strong></strong></font>
+				
+			</div>
+		</div>
+		<div class="bodyinput">
+			<?php include "form.php";?>
+		</div>
+	</div>

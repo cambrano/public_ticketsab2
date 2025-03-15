@@ -1,0 +1,188 @@
+<?php
+	include __DIR__."/../functions/security.php";
+	include '../functions/usuario_permisos.php';
+	include __DIR__."/../functions/redirect_security.php";
+	include __DIR__."/../functions/secciones_ine_ciudadanos.php";
+	include __DIR__."/../functions/secciones_ine.php";
+	include __DIR__."/../functions/secciones_ine_parametros.php";
+	include __DIR__."/../functions/secciones_ine_giras.php";
+	include __DIR__."/../functions/claves_2.php";
+	include __DIR__."/../functions/plataformas.php";
+
+	@session_start();
+	$_SESSION['Paguinasub']="seccionesIneCiudadanosGiras/create.php";
+	$id_seccion_ine_ciudadano = $_SESSION['id_seccion_ine_ciudadano'];
+	validar_plataforma_vista($id_seccion_ine_ciudadano,'secciones_ine_ciudadanos','seccionesIneCiudadanos','index',$codigo_plataforma);
+	if($id_seccion_ine_ciudadano!=""){
+		$id_seccion_ine_ciudadano;
+		$seccion_ine_ciudadanoDatos = seccion_ine_ciudadanoDatos($id_seccion_ine_ciudadano);
+		$nombre_completo = $seccion_ine_ciudadanoDatos['nombre_completo'];
+		$id_seccion_ine = $seccion_ine_ciudadanoDatos['id_seccion_ine'];
+	}else{
+		echo $redirectSecurity=redirectSecurity($id_seccion_ine_ciudadano,'secciones_ine_ciudadanos','seccionesIneCiudadanos','index');
+		if($redirectSecurity!=""){
+			die;
+		}
+	}
+
+	$claveF= clave2('secciones_ine_ciudadanos_giras');
+	$seccion_ine_ciudadano_giraDatos['clave']=$claveF['clave'];
+
+	$permiso='insert';
+
+	$seccion_ine_ciudadano_giraDatos['fecha'] = date("Y-m-d");
+	$seccion_ine_ciudadano_giraDatos['hora'] = date("H:i:s");
+?>
+	<title>Create</title>
+	<script language="javascript" type="text/javascript">
+		function cerrar(){
+			$("#homebody").load('seccionesIneCiudadanosGiras/index.php');
+		}
+
+		function guardar() {
+			document.getElementById("sumbmit").disabled = true;
+			document.getElementById("mensaje").classList.remove("mensajeSucces");
+			document.getElementById("mensaje").classList.remove("mensajeError");
+			$("#mensaje").html("&nbsp");
+			 
+			var clave = document.getElementById("clave").value; 
+			if(clave == ""){
+				document.getElementById("clave").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Clave requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+
+			var folio = document.getElementById("folio").value; 
+			if(folio == ""){
+				document.getElementById("folio").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Folio requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+
+			var id_seccion_ine_ciudadano = '<?= $id_seccion_ine_ciudadano ?>'; 
+			if(id_seccion_ine_ciudadano == ""){
+				document.getElementById("id_seccion_ine_ciudadano").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Debe Seleccionar un ciudadano en el sistema requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+
+			var id_seccion_ine_gira = document.getElementById("id_seccion_ine_gira").value;
+			if(id_seccion_ine_gira == ""){
+				document.getElementById("id_seccion_ine_gira").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Programa Apoyo requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+
+			var fecha = document.getElementById("fecha").value; 
+			if(fecha == ""){
+				document.getElementById("fecha").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Fecha requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+			if(!fechaValida(fecha)){ 
+				document.getElementById("fecha").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Fecha Válida requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+
+			var hora = document.getElementById("hora").value; 
+			if(hora == ""){
+				document.getElementById("hora").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Hora requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+
+			var observaciones = document.getElementById("observaciones").value;
+			if(observaciones == ""){
+				document.getElementById("observaciones").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Observaciones requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+
+
+
+			var seccion_ine_ciudadano_gira = []; 
+			var data = {    
+					'id_seccion_ine_ciudadano' : id_seccion_ine_ciudadano,
+					'id_seccion_ine_gira' : id_seccion_ine_gira,
+					'clave' : clave,
+					'folio' : folio,
+					'fecha' : fecha,
+					'hora' : hora,
+					'observaciones' : observaciones,
+				}
+			seccion_ine_ciudadano_gira.push(data);
+
+			$.ajax({
+				type: "POST",
+				url: "seccionesIneCiudadanosGiras/db_add.php",
+				data: {seccion_ine_ciudadano_gira: seccion_ine_ciudadano_gira},
+				success: function(data) {
+					//document.getElementById("form").reset();  
+					//document.getElementById("form").style.border="";
+					//
+					if(data=="SI"){
+						document.getElementById("sumbmit").disabled = true;
+						$("#mensaje").html("&nbsp;");
+						document.getElementById("mensaje").classList.remove("mensajeError");
+						$("#mensaje").html("Guardado con éxito"); 
+						document.getElementById("mensaje").classList.add("mensajeSucces");
+						$("#homebody").load('seccionesIneCiudadanosGiras/index.php');
+					}else{
+						document.getElementById("mensaje").classList.add("mensajeError");
+						document.getElementById("sumbmit").disabled = false;
+						$("#mensaje").html(data);
+					}
+				}
+			});
+		}
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#mensaje").click(function(event) { 
+				document.getElementById("mensaje").classList.remove("mensajeSucces");
+				document.getElementById("mensaje").classList.remove("mensajeError");
+				$("#mensaje").html("&nbsp");
+			});
+			$("#mensaje_ine_disponible").click(function(event) { 
+				document.getElementById("mensaje_ine_disponible").classList.remove("mensajeSucces");
+				document.getElementById("mensaje_ine_disponible").classList.remove("mensajeError");
+				$("#mensaje_ine_disponible").html("&nbsp");
+			});
+		});
+	</script>
+	<div class="bodymanager" id="bodymanager"> 
+		<div id="mensaje" class="mensajeSolo" ><br></div>
+		<div class="bodyform">
+			<div class= "bodyheader">
+				<label class="tituloForm">
+					<font style="font-size: 25px;">Crear Participación</font>
+				</label><br> 
+				<h2><?= $seccion_ine_ciudadanoDatos['nombre_completo']; ?></h2>
+				<label class="descripcionForm">
+					<font style="font-size: 13px;">Campos para registrar y dar de alta a participación.</font><br><br>
+				</label><br>
+				<font style="font-size: 15px;"><strong></strong></font>
+				
+			</div>
+		</div>
+		<div class="bodyinput">
+			<?php include "form.php";?>
+		</div>
+	</div>
