@@ -1,0 +1,112 @@
+<?php
+	include __DIR__."/../functions/security.php";
+	include __DIR__."/../functions/redirect_security.php";
+	include __DIR__."/../functions/casillas_votos_2018.php"; 
+	include __DIR__."/../functions/tablas_relacionadas.php";
+	include '../functions/usuario_permisos.php';
+	@session_start(); 
+	$_SESSION['Paguinasub']="casillasVotos2018/delete.php";
+	if(!empty($_GET)){
+		$id=$_SESSION['paguinaId']=$_GET['id'];
+	}else{
+		$id=$_SESSION['paguinaId'];
+	}
+	echo $redirectSecurity=redirectSecurity($id,'casillas_votos_2018','casillasVotos2018','index');
+	if($redirectSecurity!=""){
+		die;
+	}
+	$casilla_voto_2018Datos=casilla_voto_2018Datos($id);
+	$moduloAccionPermisos = moduloAccionPermisos('sistema_unico_beneficiarios','casillas_votos_2018',$_COOKIE["id_usuario"]);
+
+	$tablasRelacionadas = tablasRelacionadas('casillas_votos_2018',$id);
+	$registros_titutlo = 'Este registro esta ligado a : <br>';
+	foreach ($tablasRelacionadas['tablas'] as $key => $value) {
+		if($value['registros']>0){
+			$registros_tablas .= ' - '.$value['comentario'].' con '.number_format($value['registros'],0,'',',').' registro(s) <br>';
+		}
+	}
+?>
+	<title>Delete </title>
+	<script language="javascript" type="text/javascript">
+		function cerrar(){
+			$("#homebody").load('casillasVotos2018/index.php');
+		}
+
+		function guardar() {
+			document.getElementById("sumbmit").disabled = true;
+			document.getElementById("mensaje").classList.remove("mensajeSucces");
+			document.getElementById("mensaje").classList.remove("mensajeError");
+			$("#mensaje").html("&nbsp");
+			var id = '<?= $id?>';
+			if(id == ""){
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Id requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+			//var dataString = 'id=<?=$id;?>';
+			var dataString = 'id=<?=$id;?>';
+			$.ajax({
+				type: "POST",
+				url: "casillasVotos2018/db_delete.php",
+				data: dataString,
+				success: function(data) { 
+					if(data=="SI"){
+						document.getElementById("mensaje").classList.remove("mensajeError"); 
+						$("#mensaje").html("&nbsp;");
+						$("#mensaje").html("Eliminado con exito."); 
+						document.getElementById("mensaje").classList.add("mensajeSucces");
+						$("#homebody").load('casillasVotos2018/index.php');  
+
+					}else{
+						document.getElementById("sumbmit").disabled = false;
+						$("#mensaje").html(data);
+						document.getElementById("mensaje").classList.add("mensajeError"); 
+					}
+					//$("#homebody").load('temaslist.php'); 
+				}
+			});
+		}
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#mensaje").click(function(event) { 
+				document.getElementById("mensaje").classList.remove("mensajeSucces");
+				document.getElementById("mensaje").classList.remove("mensajeError");
+				$("#mensaje").html("&nbsp");
+			});
+		});
+	</script>
+	<div class="bodymanager" id="bodymanager"> 
+		<div id="mensaje" class="mensajeSolo" ><br></div>
+		<div class="bodyform">
+			<div class= "bodyheader">
+				<label class="tituloForm">
+					<font style="font-size: 25px;">Eliminar Casilla Voto Pasada</font>
+				</label>
+			</div>
+		</div>
+		<div class="bodyinput">
+			<label class="labelForm" id="labeltemaname">Casilla Voto</label><br>
+			<label class="descripcionForm">
+				<strong><?= $casilla_voto_2018Datos['clave']?></strong>
+			</label><br>
+			<label class="labelForm" id="labeltemaname">Código</label><br>
+			<label class="descripcionForm">
+				<strong><?= $casilla_voto_2018Datos['codigo']?></strong>
+			</label><br>
+			<?php
+			if($registros_tablas!=''){
+				echo '<div class="mensajeWarning"><font style="font-size:10px">*Sí usted decide borrar se borran los registros relacionados.</font><br>'.$registros_titutlo.'';
+				echo '<b>'.$registros_tablas.'</b>';
+				echo '</div><br>';
+			}
+			if( $moduloAccionPermisos['delete'] || $moduloAccionPermisos['all']){
+				?>
+				<input type="button" id="sumbmit" onclick="guardar()" value="SI">
+				<?php
+			}
+			?>
+			<input type="button" onclick="cerrar()" value="NO">
+		</div>
+	</div>

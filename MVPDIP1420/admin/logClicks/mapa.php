@@ -5,6 +5,10 @@
 		@session_start();
 		//var_dump($_POST);
 		if(!empty($_POST)){
+			include '../functions/secciones_ine.php';
+			include '../functions/secciones_ine_parametros.php';
+			$secciones_ineDatosMapa = secciones_ineDatosForm();
+			$secciones_ine_parametrosDatosMapa = secciones_ine_parametrosDatosMapa('','','','','','','');
 			$columna = array(
 				'fechaR',
 				'server_name',
@@ -694,6 +698,97 @@
 						}
 					})(marker, i));
 				}
+				<?php
+				foreach ($secciones_ine_parametrosDatosMapa as $key => $value) {
+					$paths = "";
+					foreach ($value as $keyT => $valueT) {
+						$path = "secciones_ine_".$key."_".$keyT;
+						echo $path." = [";
+						foreach ($valueT as $keyH => $valueH) {
+							echo "{ lat: ".$valueH['latitud'].", lng: ".$valueH['longitud']." },";
+						}
+						echo "];";
+						$paths .= $path.",";
+					}
+
+					if($tipo_uso_plataforma=='municipio'){
+						if ($secciones_ineDatosMapa[$key]['id_municipio'] == $id_municipio ){
+							if (in_array($secciones_ineDatosMapa[$key]['id'], $id_secciones_ine)) {
+								$strokeColor='#000000';
+								$fillColor='#000000';
+							}else{
+								$strokeColor='#001A36';
+								$fillColor='#001A36';
+							}
+						}else{
+							$strokeColor='#36000B';
+							$fillColor='#36000B';
+						}
+					}elseif($tipo_uso_plataforma=='distrito_local'){
+						if ($secciones_ineDatosMapa[$key]['id_distrito_local'] == $id_distrito_local ){
+							if (in_array($secciones_ineDatosMapa[$key]['id'], $id_secciones_ine)) {
+								$strokeColor='#000000';
+								$fillColor='#000000';
+							}else{
+								$strokeColor='#001A36';
+								$fillColor='#001A36';
+							}
+						}else{
+							$strokeColor='#36000B';
+							$fillColor='#36000B';
+						}
+					}elseif($tipo_uso_plataforma=='distrito_federal'){
+						if ($secciones_ineDatosMapa[$key]['id_distrito_federal'] == $id_distrito_federal ){
+							if (in_array($secciones_ineDatosMapa[$key]['id'], $id_secciones_ine)) {
+								$strokeColor='#000000';
+								$fillColor='#000000';
+							}else{
+								$strokeColor='#001A36';
+								$fillColor='#001A36';
+							}
+						}else{
+							$strokeColor='#36000B';
+							$fillColor='#36000B';
+						}
+					}else{
+						if (in_array($secciones_ineDatosMapa[$key]['id'], $id_secciones_ine)) {
+							$strokeColor='#000000';
+							$fillColor='#000000';
+						}else{
+							$strokeColor='#001A36';
+							$fillColor='#001A36';
+						}
+					}
+
+					?>
+
+					secciones_area<?= $key ?> = new google.maps.Polygon({
+						paths: [<?= $paths ?>],
+						strokeColor: '<?= $strokeColor ?>',
+						strokeOpacity: 0.8,
+						strokeWeight: 1,
+						fillColor: '<?= $fillColor ?>',
+						fillOpacity: 0.35,
+					});
+					const label<?= $key ?> = new google.maps.Marker({
+						label: {
+							text: '<?= $secciones_ineDatosMapa[$key]['numero'] ?>',
+							color: 'white',
+							fontSize: '15px'
+						},
+						icon: {
+							url: '',
+							size: new google.maps.Size(10, 10),
+							anchor: new google.maps.Point(0, 0),
+							labelOrigin: new google.maps.Point(0, 0),
+							scaledSize: new google.maps.Size(100, 30)
+						},
+						position: {lat: <?= $secciones_ineDatosMapa[$key]['latitud'] ?>, lng: <?= $secciones_ineDatosMapa[$key]['longitud'] ?>},
+						map: null,  // Inicialmente el label no se muestra en el mapa
+					});
+					<?php
+				}
+				?>
 				// Agregar un listener para detectar cambios en el mapa
 				google.maps.event.addListener(map, 'idle', function() {
 					// Obtener los límites del mapa

@@ -2,7 +2,7 @@
 	include __DIR__.'/../functions/security.php';
 	include '../functions/usuario_permisos.php';
 	@session_start();
-	$moduloAccionPermisos = moduloAccionPermisos('operatividad','api_sms',$_COOKIE["id_usuario"]);
+	$moduloAccionPermisos = moduloAccionPermisos('sistema_unico_beneficiarios','api_sms',$_COOKIE["id_usuario"]);
 	?>
 	<title>API SMS Status</title>
 	<div id='bodymanager' class='bodymanager'>

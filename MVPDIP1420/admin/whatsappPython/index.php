@@ -11,7 +11,7 @@
 	}else{
 		$permiso="insert";
 	}
-	$moduloAccionPermisos = moduloAccionPermisos('operatividad','whatsapp_python',$_COOKIE["id_usuario"]);
+	$moduloAccionPermisos = moduloAccionPermisos('sistema_unico_beneficiarios','whatsapp_python',$_COOKIE["id_usuario"]);
 	//var_dump($whatsappPythonDatos);
 	?>
 	<title>Whatsapp Python</title>

@@ -13,19 +13,15 @@
 	}else{
 		$id_empleado = decrypt_ab_checkFinal($_COOKIE['paguinaId']);
 	}
-	
-
 
 
 	$id_empleado;
 	validar_plataforma_vista($id_empleado,'empleados','adminGenerales','index',$codigo_plataforma);
-	
 
 	echo $redirectSecurity=redirectSecurity($id_empleado,'empleados','adminGenerales','index');
 	if($redirectSecurity!=""){
 		die;
 	}
-	
 	$empleadoDatos=empleadoDatos($id_empleado);
 	$moduloAccionPermisos = moduloAccionPermisos('configuracion','empleados_permisos',$_COOKIE["id_usuario"]);
 	$usuarioDatos=usuarioDatos('',$id_empleado);
@@ -33,7 +29,6 @@
 	if($_COOKIE["id_usuario"]==$usuarioDatos['id']){
 		$moduloAccionPermisos = false;
 	}
-	
 	?> 
 	<title>Permisos Usuarios</title>
 	<div id="bodymanager" class="bodymanager">

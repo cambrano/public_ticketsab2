@@ -1249,17 +1249,3 @@ function subDependencias(){
 	//$("#homebody").load(link);
 	$("#homebody").load(link+"?refresh=1");
 }
-function subDirectorios(){
-	link="directorios/index.php";
-	dataString = 'urlink='+link; 
-	$.ajax({
-		type: "POST",
-		url: "functions/backarray.php",
-		data: dataString,
-		success: function(data) { 	}
-	});
-	////
-	//$("#homebody").load(link);
-	$("#homebody").load(link+"?refresh=1");
-}
-

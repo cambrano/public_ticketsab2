@@ -32,7 +32,7 @@
 		
 
 		//generamos cookies para que nunca sepan cual es el valor del condicional para seleccionar la tabla 
-		date_default_timezone_set('America/Mazatlan');//!cambio de zona horaria
+		date_default_timezone_set('America/Cancun');//!cambio de zona horaria
 		setlocale(LC_ALL,"es_ES");
 		$length=32; 
 		$mk_id=time();

@@ -5,7 +5,7 @@
 	include __DIR__."/../functions/camparaRegistros.php";
 	include __DIR__."/../functions/configuracion.php";
 	include __DIR__."/../functions/usuario_permisos.php";
-	$moduloAccionPermisos = moduloAccionPermisos('operatividad','whatsapp_python',$_COOKIE["id_usuario"]);
+	$moduloAccionPermisos = moduloAccionPermisos('sistema_unico_beneficiarios','whatsapp_python',$_COOKIE["id_usuario"]);
 	if( $moduloAccionPermisos['insert'] == false && $moduloAccionPermisos['update'] == false && $moduloAccionPermisos['all'] == false ){
 		echo "No tiene permiso.";
 		die;

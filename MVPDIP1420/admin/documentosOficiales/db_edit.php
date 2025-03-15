@@ -9,7 +9,7 @@
 	include __DIR__."/../functions/files_size.php";
 	@session_start();
 	include __DIR__."/../functions/usuario_permisos.php";
-	$moduloAccionPermisos = moduloAccionPermisos('operatividad',"documentos_oficiales",$_COOKIE["id_usuario"]);
+	$moduloAccionPermisos = moduloAccionPermisos('sistema_unico_beneficiarios',"documentos_oficiales",$_COOKIE["id_usuario"]);
 	if( $moduloAccionPermisos['update'] == false && $moduloAccionPermisos['all'] == false ){
 		echo "No tiene permiso.";
 		die;

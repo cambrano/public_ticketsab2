@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && $dejarenblanco == '' && $nocambiar 
     $telefono = $form_post["telefono"];
     $correo_electronico = $form_post["correo_electronico"];
     $descripcion = $form_post["descripcion"];
-    date_default_timezone_set('America/Mazatlan');//!cambio de zona horaria
+    date_default_timezone_set('America/Cancun');//!cambio de zona horaria
     setlocale(LC_ALL, "es_ES");
     $fechaH = date('Y-m-d H:i:s');
 

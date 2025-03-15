@@ -207,11 +207,13 @@
 	if($tabla=="secciones_ine_giras"){
 		$columnData = array(
 			'clave'=>array('alfanumerico','requerido','unique','unique_db','mayuscula'),
+			'clave_dependencias'=>array('alfanumerico','','buscar_clave','mayuscula'),
 			'folio' =>array('alfanumerico',''),
 			'nombre' =>array('alfanumerico',''),
 			
 			'fecha'=>array('fecha',''),
 			'hora'=>array('hora',''),
+			'clave_tipos_giras'=>array('alfanumerico','','buscar_clave','mayuscula'),
 			'tipo'=>array('alfanumerico',''),
 			'observaciones'=>array('alfanumerico',''),
 

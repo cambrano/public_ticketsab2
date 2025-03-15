@@ -1,8 +1,25 @@
 <?php
+/*
+$dbhost="mysql1005.mochahost.com";
+$dbport="3306";
+*/
+//$dbusuario_user = $dbusuario="cambrano_perMVP";
+//$dbpassword_user = $dbpassword="Z225a3wwZeYd";
+/*
+$db="cambrano_yucaradar";
+$database_users_12X12[] = array('usuario' => 'cambrano_yucaradar', 'password' => 's#J$Q;@td{_R', );
+$database_users_12X12[] = array('usuario' => 'cambrano_yucaradar1', 'password' => 's#J$Q;@td{_R', );
+$database_users_12X12[] = array('usuario' => 'cambrano_yucaradar2', 'password' => 's#J$Q;@td{_R', );
+$database_users_12X12[] = array('usuario' => 'cambrano_yucaradar3', 'password' => 's#J$Q;@td{_R', );
+$database_users_12X12[] = array('usuario' => 'cambrano_yucaradar4', 'password' => 's#J$Q;@td{_R', );
+$datauser_random = array_rand($database_users_12X12, 1);
+$dbusuario_user = $dbusuario = $database_users_12X12[$datauser_random]['usuario'];
+$dbpassword_user = $dbpassword = $database_users_12X12[$datauser_random]['password'];
+*/
 $dbhost = '192.168.1.94';
 $dbhost = 'localhost'; 
 //$dbhost = '192.168.1.99';
-$db="cambrano_ticketsab";
+$db="cambrano_solidaridad";
 $dbport="3306";
 $dbusuario_user = $dbusuario = $database_users_12X12[$datauser_random]['usuario']="alienab";
 $dbpassword_user = $dbpassword = $database_users_12X12[$datauser_random]['password']="a07080444c";
@@ -23,9 +40,9 @@ $dbpassword_user = $dbpassword = $database_users_12X12[$datauser_random]['passwo
 $tipo_uso_plataforma="municipio";
 $id_estado="23";
 $cur_abreviacion_estado="QR";
-$id_municipio="1821";
-$latitud="20.581565";
-$longitud="-87.358173";
+$id_municipio="1824";
+$latitud="20.9376025";
+$longitud="-87.129838";
 $estado_nombre="Q. Roo";
 $extranjeros_mode="false";
 $id_partido_legado_pataforma="7";

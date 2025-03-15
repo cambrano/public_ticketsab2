@@ -73,7 +73,8 @@
 					'programas_apoyos_dependencias'=>'Programas Apoyos Dependencias',
 					'secciones_ine_ciudadanos_programas_apoyos'=>'Ciudadanos Programas Apoyos',
 					'secciones_ine_actividades'=>'Acciones y Obras',
-					'secciones_ine_giras'=>'Giras',
+					'tipos_giras'=>'Tipos Agenda',
+					'secciones_ine_giras'=>'Agenda',
 
 				),
 				'Grupos'=>array(

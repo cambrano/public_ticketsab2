@@ -108,6 +108,7 @@
 			$value['codigo_plataforma']=$codigo_plataforma;
 			$value['referencia_importacion']=$cod32;
 			$value['fechaR']=$fechaH;
+			$value['fecha_hora'] = $value['fecha'].' '.$value['hora'];
 			//$value['fecha_hora'] = $value['fecha'].' '.$value['hora'];
 			foreach($value as $keyPrincipal => $atributo) {
 				$value[$keyPrincipal]= mysqli_real_escape_string($conexion,$atributo);

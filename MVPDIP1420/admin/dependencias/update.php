@@ -79,12 +79,22 @@
 				return false;
 			}
 
+			var nomenclatura = document.getElementById("nomenclatura").value; 
+			if(nomenclatura == ""){
+				document.getElementById("nomenclatura").focus(); 
+				document.getElementById("sumbmit").disabled = false;
+				$("#mensaje").html("Nomenclatura requerido");
+				document.getElementById("mensaje").classList.add("mensajeError");
+				return false;
+			}
+
 			var dependencia = [];
 			var data = {
 					'id' : id,
 					'clave' : clave,
 					'nombre' : nombre,
 					'nombre_corto' : nombre_corto,
+					'nomenclatura' : nomenclatura,
 				}
 			dependencia.push(data);
 			$.ajax({

@@ -31,7 +31,7 @@
 		if($paquetesSistema==true){
 			//checamos las notificaciones
 			//$notificaciones_sistemaDatos=notificaciones_sistemaDatos();
-			date_default_timezone_set('America/Mazatlan');//!cambio de zona horaria
+			date_default_timezone_set('America/Cancun');//!cambio de zona horaria
 			setlocale(LC_ALL,"es_ES"); 
 			$fechaSF=date('Y-m-d');
 			$fechaSFMD=date('m-d');
@@ -221,7 +221,7 @@
 				$tipo=1;
 				$id_grupo=null;
 				if($fecha2==""){
-					date_default_timezone_set('America/Mazatlan');//!cambio de zona horaria
+					date_default_timezone_set('America/Cancun');//!cambio de zona horaria
 					setlocale(LC_ALL,"es_ES");
 					$fecha2 = date('Y-m-d');
 				}
@@ -330,7 +330,7 @@
 				$tipo=2;
 				$id_grupo=null;
 				if($fecha2==""){
-					date_default_timezone_set('America/Mazatlan');//!cambio de zona horaria
+					date_default_timezone_set('America/Cancun');//!cambio de zona horaria
 					setlocale(LC_ALL,"es_ES");
 					$fecha2 = date('Y-m-d');
 				}

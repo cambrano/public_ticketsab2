@@ -1,5 +1,5 @@
 <?php
-		function sub_dependencias($id=null,$id_dependencia=null,$sin_seleccione=null) {
+		function sub_dependencias($id=null,$sin_seleccione=null) {
 			include 'db.php'; 
 			$id;
 			$select[$id]='selected="selected"';
@@ -7,12 +7,7 @@
 				$return ="<option ".$select[$sel]." value='' >Seleccione</option> ";
 			}
 			$sql="SELECT * FROM sub_dependencias WHERE 1 = 1 ";
-			if($id!=""){
-				$sql.=" AND id='{$id}' ";
-			}
-			if($id_dependencia!=""){
-				$sql.=" AND id_dependencia='{$id_dependencia}' ";
-			}
+		
 			$result = $conexion->query($sql);  
 			 
 			while($row=$result->fetch_assoc()){

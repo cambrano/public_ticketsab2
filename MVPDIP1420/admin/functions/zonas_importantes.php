@@ -22,6 +22,9 @@
 					when 3 then 'Interés'
 				end AS tipo,
 				(SELECT l.localidad FROM localidades l WHERE l.id = sia.id_localidad ) localidad,
+				si.numero seccion,
+				dl.numero distrito_local,
+				df.numero distrito_federal,
 				m.municipio,
 				sia.latitud,
 				sia.longitud,
@@ -32,6 +35,9 @@
 				sia.colonia,
 				sia.codigo_postal
 			FROM zonas_importantes sia
+			LEFT JOIN secciones_ine si on sia.id_seccion_ine = si.id
+			LEFT JOIN distritos_locales dl on si.id_distrito_local = dl.id
+			LEFT JOIN distritos_federales df on si.id_distrito_federal = df.id
 			LEFT JOIN municipios m on sia.id_municipio = m.id 
 			WHERE 1 = 1 
 			";
@@ -54,7 +60,7 @@
 					}elseif($key=="id_distrito_federal"){
 						$sql.= " AND  si.{$key} IN ({$value}) ";
 					}else{
-						if($key == $key == "id_municipio" || $key == "id_localidad" ){
+						if($key == "id_seccion_ine" || $key == "id_municipio" || $key == "id_localidad" ){
 							$sql.= " AND  sia.{$key} IN ({$value}) ";
 						}else{
 							$sql.= " AND  sia.{$key} = '{$value}' ";

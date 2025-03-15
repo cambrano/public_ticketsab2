@@ -15,12 +15,26 @@
 		}
 	?>
 	<?php
-		if($seccionesPermiso['operatividad'] || $seccionesPermiso['all'] ){
+		if($seccionesPermiso['sistema_unico_beneficiarios'] || $seccionesPermiso['all'] ){
 			?>
-			<li><a href='#' data-toggle="collapse" data-target=".navbar-collapse" id="operatividad">
-					Operatividad
+			<li><a href='#' data-toggle="collapse" data-target=".navbar-collapse" id="sistema_unico_beneficiarios">
+					Sistema Único De Beneficiarios
 				</a>
 			</li>
+			<?php
+		}
+	?>
+	<?php
+		if($seccionesPermiso['sistema_unico_beneficiarios1'] || $seccionesPermiso['all1'] ){
+			?>
+			<li style="display:initial;"><a href='#' data-toggle="collapse" data-target=".navbar-collapse" id="dia_d">Día D</a></li>
+			<?php
+		}
+	?>
+	<?php
+		if($seccionesPermiso['reportes1'] || $seccionesPermiso['all1'] ){
+			?>
+			<li><a href='#' data-toggle="collapse" data-target=".navbar-collapse" id="reportes">Reportes</a></li>
 			<?php
 		}
 	?>

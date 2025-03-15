@@ -3,7 +3,7 @@
 		ini_set('memory_limit', '5048M');
 		//ini_set('max_execution_time', 10200);
 
-		date_default_timezone_set('America/Mazatlan');//!cambio de zona horaria
+		date_default_timezone_set('America/Cancun');//!cambio de zona horaria
 		setlocale(LC_ALL,"es_ES");
 
 		include '../admin/keySistema/dir.php';

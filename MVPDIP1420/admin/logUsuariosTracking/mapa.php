@@ -23,6 +23,10 @@
 			'user_agent'
 		);
 		include '../functions/log_usuarios_tracking.php';
+		include '../functions/secciones_ine.php';
+		include '../functions/secciones_ine_parametros.php';
+		$secciones_ineDatosMapa = secciones_ineDatosForm();
+		$secciones_ine_parametrosDatosMapa = secciones_ine_parametrosDatosMapa('','','','','','','');
 		if($_POST['mapa'][0]['order']==""){
 			$_POST['mapa'][0]['order'] =0;
 		}

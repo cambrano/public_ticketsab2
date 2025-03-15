@@ -1,5 +1,5 @@
 <?php
-	$moduloAccionPermisos = moduloAccionPermisos('operatividad','dependencias',$_COOKIE["id_usuario"]);
+	$moduloAccionPermisos = moduloAccionPermisos('sistema_unico_beneficiarios','dependencias',$_COOKIE["id_usuario"]);
 	if(empty($moduloAccionPermisos)){
 		?>
 		<script type="text/javascript">

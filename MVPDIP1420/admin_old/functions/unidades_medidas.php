@@ -1,0 +1,44 @@
+<?php
+		function unidades_medidas($id=null,$sin_seleccione=null) {
+			include 'db.php'; 
+			$id;
+			$select[$id]='selected="selected"';
+			if($sin_seleccione==""){
+				$return ="<option ".$select[$sel]." value='' >Seleccione</option> ";
+			}
+			echo $sql="SELECT * FROM unidades_medidas WHERE 1 = 1 ";
+			$result = $conexion->query($sql);  
+			while($row=$result->fetch_assoc()){
+				$sel=$row['id'];
+				$return .="<option ".$select[$sel]." value='".$row['id']."' >".$row['nombre'].' ('.$row['unidad_completa'].")</option> ";
+			} 
+			$conexion->close();
+			return $return;
+		}
+
+		function unidad_medidaDatos($id=null){
+			include 'db.php';
+			$sql=("SELECT * FROM unidades_medidas WHERE 1 = 1 ");
+			if($id!=""){
+				$sql.=" AND id='{$id}' ";
+			}
+			$resultado = $conexion->query($sql);
+			$row=$resultado->fetch_assoc();
+			$datos=$row; 
+			return $datos;
+		}
+
+		function unidad_medidaNombre($id=null){
+			include 'db.php';
+			$sql=("SELECT * FROM unidades_medidas WHERE 1 = 1 ");
+			if($id!=""){
+				$sql.=" AND id='{$id}' ";
+			}
+			$resultado = $conexion->query($sql);
+			$row=$resultado->fetch_assoc();
+			$datos=$row['nombre']; 
+			return $datos;
+		}
+
+
+?>

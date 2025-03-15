@@ -138,7 +138,7 @@ $(document).ready(function() {
 			urlink="cerrar.php";
 			$("#homebody").load(urlink); 
 		});
-		$("#operatividad").click(function(event) {  
+		$("#sistema_unico_beneficiarios").click(function(event) {  
 		////ajax
 			link="setupLogistica/index.php";
 			dataString = 'urlink='+link; 

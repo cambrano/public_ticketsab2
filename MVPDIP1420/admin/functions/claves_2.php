@@ -1,99 +1,75 @@
 <?php
-		function clave21($tipo){ 
-			include 'db.php';
-			$sql="SELECT * FROM claves_2 WHERE 1 = 1 ";
-			$resultado = $conexion->query($sql);
-			$row=$resultado->fetch_assoc();
-			
-			$tipo_gasto=$row['tipo_gasto'];
-			$forma_tipo_gasto=$row['forma_tipo_gasto'];
-			if($tipo=="tipos_gastos"){
-				//servidor_correo
-				$clave=preg_replace("/\((.*?)\)/i", "", $tipo_gasto);
-				$textual=$tipo_gasto;
-				$countTotal=strlen($tipo_gasto);
-				$tabla=$tipo;
-				$forma=$forma_tipo_gasto;
-			}
-
-			$tipo_gasto_asignado=$row['tipo_gasto_asignado'];
-			$forma_tipo_gasto_asignado=$row['forma_tipo_gasto_asignado'];
-			if($tipo=="tipos_gastos_asignados"){
-				//servidor_correo
-				$clave=preg_replace("/\((.*?)\)/i", "", $tipo_gasto_asignado);
-				$textual=$tipo_gasto_asignado;
-				$countTotal=strlen($tipo_gasto_asignado);
-				$tabla=$tipo;
-				$forma=$forma_tipo_gasto_asignado;
-			}
-
-
-
-			$sql="SELECT * FROM {$tabla} WHERE clave LIKE '%{$clave}%'  ";
-			$result = $conexion->query($sql);
-			while($row=$result->fetch_assoc()){
-				$row['clave'];
-				$tablaCalve = str_replace($clave,"", $row['clave']);
-				if(strlen($coincidencias[1]) == strlen($tablaCalve)){
-					$arrayNumero[]= $tablaCalve;
-				} 
-			}
-			sort($arrayNumero);
-			foreach ($arrayNumero as $key => $value) {
-				$numero= $value; 
-			}
-			$numero=$numero+1; 
-			
-			$forma = strtolower($forma);
-			$arrayClave['tipo']=$forma;
-			if($forma=='automatico'){
-				$arrayClave['input']='disabled="disabled"';
-				$arrayClave['clave']=$clave.str_pad($numero, strlen($coincidencias[1]),0,STR_PAD_LEFT);
-			}else{
-				$arrayClave['input']='';
-				$arrayClave['clave']='';
-			}
-			$conexion->close();
-			return $arrayClave;
-		}
 		function clave2($tipo){ 
 			include 'db.php';
 			$sql="SELECT * FROM claves_2 WHERE 1 = 1 ";
 			$resultado = $conexion->query($sql);
 			$row=$resultado->fetch_assoc();
 			
-			$tipo_gasto=$row['tipo_gasto'];
-			$forma_tipo_gasto=$row['forma_tipo_gasto'];
-			if($tipo=="tipos_gastos"){
-				//empleado
-				$clave=preg_replace("/\((.*?)\)/i", "", $tipo_gasto);
-				$textual=$tipo_gasto;
-				$countTotal=strlen($tipo_gasto);
+			$empresa_adjudicada=$row['empresa_adjudicada'];
+			$forma_empresa_adjudicada=$row['forma_empresa_adjudicada'];
+			if($tipo=="empresas_adjudicadas"){
+				//empresa_adjudicada
+				$clave=preg_replace("/\((.*?)\)/i", "", $empresa_adjudicada);
+				$textual=$empresa_adjudicada;
+				$countTotal=strlen($empresa_adjudicada);
 				$tabla=$tipo;
-				$forma=$forma_tipo_gasto;
+				$forma=$forma_empresa_adjudicada;
 			}
 
-			$tipo_gasto_asignado=$row['tipo_gasto_asignado'];
-			$forma_tipo_gasto_asignado=$row['forma_tipo_gasto_asignado'];
-			if($tipo=="tipos_gastos_asignados"){
-				//empleado
-				$clave=preg_replace("/\((.*?)\)/i", "", $tipo_gasto_asignado);
-				$textual=$tipo_gasto_asignado;
-				$countTotal=strlen($tipo_gasto_asignado);
+			$supervisor=$row['supervisor'];
+			$forma_supervisor=$row['forma_supervisor'];
+			if($tipo=="supervisores"){
+				//servidor_correo
+				$clave=preg_replace("/\((.*?)\)/i", "", $supervisor);
+				$textual=$supervisor;
+				$countTotal=strlen($supervisor);
 				$tabla=$tipo;
-				$forma=$forma_tipo_gasto_asignado;
+				$forma=$forma_supervisor;
+			}
+
+			$seccion_ine_gira=$row['seccion_ine_gira'];
+			$forma_seccion_ine_gira=$row['forma_seccion_ine_gira'];
+			if($tipo=="secciones_ine_giras"){
+				//servidor_correo
+				$clave=preg_replace("/\((.*?)\)/i", "", $seccion_ine_gira);
+				$textual=$seccion_ine_gira;
+				$countTotal=strlen($seccion_ine_gira);
+				$tabla=$tipo;
+				$forma=$forma_seccion_ine_gira;
+			}
+
+			$seccion_ine_gira=$row['seccion_ine_ciudadano_gira'];
+			$forma_seccion_ine_gira=$row['forma_seccion_ine_ciudadano_gira'];
+			if($tipo=="secciones_ine_ciudadanos_giras"){
+				//servidor_correo
+				$clave=preg_replace("/\((.*?)\)/i", "", $seccion_ine_gira);
+				$textual=$seccion_ine_gira;
+				$countTotal=strlen($seccion_ine_gira);
+				$tabla=$tipo;
+				$forma=$forma_seccion_ine_gira;
 			}
 
 
-			$control_gasto_ingreso=$row['control_gasto_ingreso'];
-			$forma_control_gasto_ingreso=$row['forma_control_gasto_ingreso'];
-			if($tipo=="control_gastos_ingresos"){
-				//empleado
-				$clave=preg_replace("/\((.*?)\)/i", "", $control_gasto_ingreso);
-				$textual=$control_gasto_ingreso;
-				$countTotal=strlen($control_gasto_ingreso);
+			$tipo_gira=$row['tipo_gira'];
+			$forma_tipo_gira=$row['forma_tipo_gira'];
+			if($tipo=="tipos_giras"){
+				//servidor_correo
+				$clave=preg_replace("/\((.*?)\)/i", "", $tipo_gira);
+				$textual=$tipo_gira;
+				$countTotal=strlen($tipo_gira);
 				$tabla=$tipo;
-				$forma=$forma_control_gasto_ingreso;
+				$forma=$forma_tipo_gira;
+			}
+
+			$seccion_ine_agenda_gobierno=$row['seccion_ine_agenda_gobierno'];
+			$forma_seccion_ine_agenda_gobierno=$row['forma_seccion_ine_agenda_gobierno'];
+			if($tipo=="secciones_ine_agendas_gobierno"){
+				//servidor_correo
+				$clave=preg_replace("/\((.*?)\)/i", "", $seccion_ine_agenda_gobierno);
+				$textual=$seccion_ine_agenda_gobierno;
+				$countTotal=strlen($seccion_ine_agenda_gobierno);
+				$tabla=$tipo;
+				$forma=$forma_seccion_ine_agenda_gobierno;
 			}
 
 			$clave; 
@@ -102,6 +78,50 @@
 			strlen($coincidencias[1]); 
 
 			//preg_replace("/\[(.*?)\]/i", "", $empleado);
+			$partido_2016=$row['partido_2016'];
+			$forma_partido_2016=$row['forma_partido_2016'];
+			if($tipo=="partidos_2016"){
+				//partido
+				$clave=preg_replace("/\((.*?)\)/i", "", $partido_2016);
+				$textual=$partido_2016;
+				$countTotal=strlen($partido_2016);
+				$tabla=$tipo;
+				$forma=$forma_partido_2016;
+			}
+
+			$casilla_voto_2016=$row['casilla_voto_2016'];
+			$forma_casilla_voto_2016=$row['forma_casilla_voto_2016'];
+			if($tipo=="casillas_votos_2016"){
+				//casilla_voto_2016
+				$clave=preg_replace("/\((.*?)\)/i", "", $casilla_voto_2016);
+				$textual=$casilla_voto_2016;
+				$countTotal=strlen($casilla_voto_2016);
+				$tabla=$tipo;
+				$forma=$forma_casilla_voto_2016;
+			}
+
+			$partido_2024=$row['partido_2024'];
+			$forma_partido_2024=$row['forma_partido_2024'];
+			if($tipo=="partidos_2024"){
+				//partido
+				$clave=preg_replace("/\((.*?)\)/i", "", $partido_2024);
+				$textual=$partido_2024;
+				$countTotal=strlen($partido_2024);
+				$tabla=$tipo;
+				$forma=$forma_partido_2024;
+			}
+
+			$casilla_voto_2024=$row['casilla_voto_2024'];
+			$forma_casilla_voto_2024=$row['forma_casilla_voto_2024'];
+			if($tipo=="casillas_votos_2024"){
+				//casilla_voto_2024
+				$clave=preg_replace("/\((.*?)\)/i", "", $casilla_voto_2024);
+				$textual=$casilla_voto_2024;
+				$countTotal=strlen($casilla_voto_2024);
+				$tabla=$tipo;
+				$forma=$forma_casilla_voto_2024;
+			}
+
 
 
 			$sql="SELECT * FROM {$tabla} WHERE clave LIKE '%{$clave}%'  ";
@@ -131,6 +151,7 @@
 			$conexion->close();
 			return $arrayClave;
 		}
+
 		function clave2ValidadorSistema($clave=null,$tipo=null,$id_diferente=null){ 
 			include 'db.php';
 			$sql="SELECT * FROM {$tipo} WHERE clave = '{$clave}' ";

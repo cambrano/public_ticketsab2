@@ -1,6 +1,6 @@
 <?php
 	include '../functions/usuario_permisos.php';
-	$moduloAccionPermisos = moduloAccionPermisos('operatividad','correos_mailing',$_COOKIE["id_usuario"]);
+	$moduloAccionPermisos = moduloAccionPermisos('sistema_unico_beneficiarios','correos_mailing',$_COOKIE["id_usuario"]);
 	if(empty($moduloAccionPermisos)){
 		?>
 		<script type="text/javascript">

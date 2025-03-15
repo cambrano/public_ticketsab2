@@ -14,29 +14,94 @@
 		'empleado'=>'empleado',
 		'forma_empleado'=>'forma_empleado',
 
-		'ubicacion'=>'ubicacion',
-		'forma_ubicacion'=>'forma_ubicacion',
-		
-		'titulo_personal'=>'titulo_personal',
-		'forma_titulo_personal'=>'forma_titulo_personal',
+		'tipo_actividad'=>'tipo_actividad',
+		'forma_tipo_actividad'=>'forma_tipo_actividad',
 
-		'directorio'=>'directorio',
-		'forma_directorio'=>'forma_directorio',
+		'red_social'=>'red_social',
+		'forma_red_social'=>'forma_red_social',
 
-		'tipo_equipo'=>'tipo_equipo',
-		'forma_tipo_equipo'=>'forma_tipo_equipo',
+		'servidor_correo'=>'servidor_correo',
+		'forma_servidor_correo'=>'forma_servidor_correo',
 
-		'responsable_equipo'=>'responsable_equipo',
-		'forma_responsable_equipo'=>'forma_responsable_equipo',
+		'identidad'=>'identidad',
+		'forma_identidad'=>'forma_identidad',
 
-		'sistema_operativo'=>'sistema_operativo',
-		'forma_sistema_operativo'=>'forma_sistema_operativo',
+		'correo_electronico'=>'correo_electronico',
+		'forma_correo_electronico'=>'forma_correo_electronico',
 
-		'software'=>'software',
-		'forma_software'=>'forma_software',
+		'cuenta_red_social'=>'cuenta_red_social',
+		'forma_cuenta_red_social'=>'forma_cuenta_red_social',
 
-		'equipo'=>'equipo',
-		'forma_equipo'=>'forma_equipo',
+		'cuenta_red_social_actividad'=>'cuenta_red_social_actividad',
+		'forma_cuenta_red_social_actividad'=>'forma_cuenta_red_social_actividad',
+
+		'distrito_local'=>'distrito_local',
+		'forma_distrito_local'=>'forma_distrito_local',
+
+		'distrito_federal'=>'distrito_federal',
+		'forma_distrito_federal'=>'forma_distrito_federal',
+
+		'cuartel'=>'cuartel',
+		'forma_cuartel'=>'forma_cuartel',
+
+		'seccion_ine'=>'seccion_ine',
+		'forma_seccion_ine'=>'forma_seccion_ine',
+
+		'tipo_ciudadano'=>'tipo_ciudadano',
+		'forma_tipo_ciudadano'=>'forma_tipo_ciudadano',
+
+		'tipo_territorio'=>'tipo_territorio',
+		'forma_tipo_territorio'=>'forma_tipo_territorio',
+
+		'dependencia'=>'dependencia',
+		'forma_dependencia'=>'forma_dependencia',
+
+		'categoria_programa_apoyo'=>'categoria_programa_apoyo',
+		'forma_categoria_programa_apoyo'=>'forma_categoria_programa_apoyo',
+
+		'seccion_ine_ciudadano_programa_apoyo'=>'seccione_ine_ciudadano_programa_apoyo',
+		'forma_seccion_ine_ciudadano_programa_apoyo'=>'forma_seccione_ine_ciudadano_programa_apoyo',
+
+		'programa_apoyo'=>'programa_apoyo',
+		'forma_programa_apoyo'=>'forma_programa_apoyo',
+
+		'tipo_categoria_ciudadano'=>'tipo_categoria_ciudadano',
+		'forma_tipo_categoria_ciudadano'=>'forma_tipo_categoria_ciudadano',
+
+		'seccion_ine_ciudadano'=>'ciudadano',
+		'forma_seccion_ine_ciudadano'=>'forma_ciudadano',
+
+		'seccion_ine_actividad'=>'seccion_ine_actividad',
+		'forma_seccion_ine_actividad'=>'forma_seccion_ine_actividad',
+
+		'tipo_casilla'=>'tipo_casilla',
+		'forma_tipo_casilla'=>'forma_tipo_casilla',
+
+		'partido_2018'=>'partido_2018',
+		'forma_partido_2018'=>'forma_partido_2018',
+
+		'casilla_voto_2018'=>'casilla_voto_2018',
+		'forma_casilla_voto_2018'=>'forma_casilla_voto_2018',
+
+
+		'partido_2021'=>'partido_2021',
+		'forma_partido_2021'=>'forma_partido_2021',
+
+		'casilla_voto_2021'=>'casilla_voto_2021',
+		'forma_casilla_voto_2021'=>'forma_casilla_voto_2021',
+
+		'partido_legado'=>'partido_legado',
+		'forma_partido_legado'=>'forma_partido_legado',
+
+		'militante_partido'=>'militante_partido',
+		'forma_militante_partido'=>'forma_militante_partido',
+
+		'seccion_ine_grupo'=>'seccion_ine_grupo',
+		'forma_seccion_ine_grupo'=>'forma_seccion_ine_grupo',
+
+		'seccion_ine_ciudadano_grupo'=>'seccion_ine_ciudadano_grupo',
+		'forma_seccion_ine_ciudadano_grupo'=>'forma_seccion_ine_ciudadano_grupo',
+
 
 	);
 	$moduloAccionPermisos = moduloAccionPermisos('configuracion','claves',$_COOKIE["id_usuario"]);

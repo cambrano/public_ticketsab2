@@ -34,7 +34,7 @@
 	$sql.=" ORDER BY ". $columns[$requestData['order'][0]['column']]."  ".$requestData['order'][0]['dir'];
 
 	$sql.=" LIMIT ".$requestData['start']." ,".$requestData['length'].";";
-	$moduloAccionPermisos = moduloAccionPermisos('operatividad','correos_mailing',$_COOKIE["id_usuario"]);
+	$moduloAccionPermisos = moduloAccionPermisos('sistema_unico_beneficiarios','correos_mailing',$_COOKIE["id_usuario"]);
 	if( $moduloAccionPermisos['delete'] || $moduloAccionPermisos['all']){
 		$option_delete = true;
 	}

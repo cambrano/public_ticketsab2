@@ -113,7 +113,7 @@
 			$conexion->close();
 			return $nombre;
 		}
-		function modulosExcluirEmpleadoold($id_modulo=null,$id_seccion=null,$id_empleado=null) {
+		function modulosExcluirEmpleado($id_modulo=null,$id_seccion=null,$id_empleado=null) {
 			include 'db.php'; 
 			include '../functions/db.php'; 
 			include '../functions/elecciones.php'; 
@@ -189,36 +189,4 @@
 			}
 			return $return;
 		}
-		function modulosExcluirEmpleado($id_modulo=null,$id_seccion=null,$id_empleado=null) {
-			include 'db.php'; 
-			include '../functions/db.php'; 
-			$select[$id_modulo]='selected="selected"';
-			$return ="<option ".$select[$sel]." value='' >Seleccione</option> ";
-			
-			$sql="SELECT * FROM modulos m WHERE m.status=1 AND m.id_seccion = '".$id_seccion."' AND 
-					NOT EXISTS (
-					SELECT * FROM usuarios_modulos um WHERE um.id_modulo = m.id AND um.id_empleado = '".$id_empleado."'
-					) ";
-			
-			$sql.=" ORDER BY grupo,orden ASC ;";
-			$result = $conexion->query($sql);  
-			while($row=$result->fetch_assoc()){
-				$datos[$row['grupo']][]=$row;
-			}
-
-			
-
-			foreach ($datos as $key => $value) {
-				$mostrar = false;
-				$return .="<optgroup label='".ucwords($key)."' data-max-options='2'>";
-				$num=1;
-				foreach ($value as $keyT => $valueT) {
-					$return .="<option  value='".$valueT['id']."' >".$num.' - '.ucwords($valueT['modulo'])."</option> ";
-					$num = $num +1;
-				}
-				$return .="</optgroup>";
-			}
-			return $return;
-		}
-		
 ?>

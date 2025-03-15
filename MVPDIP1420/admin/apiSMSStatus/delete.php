@@ -16,7 +16,7 @@
 		die;
 	}
 	$api_sms_statusDatos=api_sms_statusDatos($id);
-	$moduloAccionPermisos = moduloAccionPermisos('operatividad','api_sms',$_COOKIE["id_usuario"]);
+	$moduloAccionPermisos = moduloAccionPermisos('sistema_unico_beneficiarios','api_sms',$_COOKIE["id_usuario"]);
 ?>
 	<title>Delete </title>
 	<script language="javascript" type="text/javascript">

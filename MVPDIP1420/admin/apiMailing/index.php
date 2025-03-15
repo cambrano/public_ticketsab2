@@ -10,7 +10,7 @@
 	}else{
 		$permiso="insert";
 	}
-	$moduloAccionPermisos = moduloAccionPermisos('operatividad','api_mailing',$_COOKIE["id_usuario"]);
+	$moduloAccionPermisos = moduloAccionPermisos('sistema_unico_beneficiarios','api_mailing',$_COOKIE["id_usuario"]);
 	?>
 	<title>Api Mailing</title>
 	<script language="javascript" type="text/javascript">

@@ -16,7 +16,7 @@
 		die;
 	}
 	$api_whatsapp_statusDatos=api_whatsapp_statusDatos($id);
-	$moduloAccionPermisos = moduloAccionPermisos('operatividad','api_whatsapp',$_COOKIE["id_usuario"]);
+	$moduloAccionPermisos = moduloAccionPermisos('sistema_unico_beneficiarios','api_whatsapp',$_COOKIE["id_usuario"]);
 ?>
 	<title>Delete </title>
 	<script language="javascript" type="text/javascript">

@@ -68,7 +68,7 @@
 	$sql.=" LIMIT ".$requestData['start']." ,".$requestData['length'].";";
 
 	
-	$moduloAccionPermisos = moduloAccionPermisos('operatividad','dependencias',$_COOKIE["id_usuario"]);
+	$moduloAccionPermisos = moduloAccionPermisos('sistema_unico_beneficiarios','dependencias',$_COOKIE["id_usuario"]);
 	if( $moduloAccionPermisos['delete'] || $moduloAccionPermisos['all']){
 		$option_delete = true;
 	}

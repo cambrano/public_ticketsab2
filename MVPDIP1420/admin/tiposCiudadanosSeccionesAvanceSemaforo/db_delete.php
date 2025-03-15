@@ -1,0 +1,49 @@
+<?php
+	include __DIR__."/../functions/security.php";
+	include __DIR__."/../functions/timemex.php";
+	include __DIR__."/../functions/log_usuarios.php";
+	include __DIR__."/../functions/usuario_permisos.php";
+
+	$moduloAccionPermisos = moduloAccionPermisos('sistema_unico_beneficiarios','secciones_ine_ciudadanos_secciones_avance_semaforo',$_COOKIE["id_usuario"]);
+	if( $moduloAccionPermisos['delete'] == false && $moduloAccionPermisos['all'] == false ){
+		echo "No tiene permiso.";
+		die;
+	}
+	if(!empty($_POST)){
+		//metemos los valores para que se no tengamos error
+		foreach($_POST as $keyPrincipal => $atributo) {
+			$_POST[$keyPrincipal]= mysqli_real_escape_string($conexion,$atributo);
+		}
+		$id=$_POST['id'];
+		$success=true;
+
+
+		$delete_secciones_ine_ciudadanos_seguimientos = "DELETE FROM tipos_ciudadanos_secciones_avance_semaforo  WHERE  id='$id' ";
+		$conexion->autocommit(FALSE);
+		$delete_secciones_ine_ciudadanos_seguimientos=$conexion->query($delete_secciones_ine_ciudadanos_seguimientos);
+		$num=$conexion->affected_rows;
+		if(!$delete_secciones_ine_ciudadanos_seguimientos || $num=0){
+			$success=false;
+			echo "ERROR delete Tipo Ciudadano Sección Semáforo"; 
+			echo "<br>";
+			echo("Errorcode: " . mysqli_errno($conexion));
+			echo "<br>";
+		}
+
+		if($success){
+			$log= logUsuario($_COOKIE["id_usuario"],'tipos_ciudadanos_secciones_avance_semaforo',$id,'Delete','',$fechaH);
+			if($log==true){
+				echo "SI";
+				$conexion->commit();
+				$conexion->close();
+			}else{
+				echo "NO";
+				$conexion->rollback();
+				$conexion->close();
+			}
+		}else{
+			echo "NO";
+			$conexion->rollback();
+			$conexion->close();
+		}
+	}

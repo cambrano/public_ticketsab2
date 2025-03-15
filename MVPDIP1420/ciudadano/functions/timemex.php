@@ -1,5 +1,5 @@
 <?php 
-date_default_timezone_set('America/Mazatlan');//!cambio de zona horaria
+date_default_timezone_set('America/Cancun');//!cambio de zona horaria
 setlocale(LC_ALL,"es_ES");
 $fechaH=date('Y-m-d H:i:s');
 $fechaSH=date('H:i:s');

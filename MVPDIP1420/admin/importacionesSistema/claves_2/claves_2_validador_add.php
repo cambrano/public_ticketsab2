@@ -181,6 +181,8 @@
 					'casilla_voto_2024'=>array('alfanumerico','requerido','mayuscula'),
 					'forma_casilla_voto_2024'=>array('alfanumerico','requerido','mayuscula'),
 
+					'tipo_gira'=>array('alfanumerico','requerido','mayuscula'),
+					'forma_tipo_gira'=>array('alfanumerico','requerido','mayuscula'),
 				);
 	}
 

@@ -1,6 +1,6 @@
 <?php
 	include '../functions/usuario_permisos.php';
-	$moduloAccionPermisos = moduloAccionPermisos('operatividad','dependencias',$_COOKIE["id_usuario"]);
+	$moduloAccionPermisos = moduloAccionPermisos('sistema_unico_beneficiarios','dependencias',$_COOKIE["id_usuario"]);
 	if(empty($moduloAccionPermisos)){
 		?>
 		<script type="text/javascript">
@@ -35,6 +35,11 @@
 		<div class="sucForm" style="width: 100%">
 			<label class="labelForm" id="labeltemaname">Nombre<font color="#FF0004">*</font></label><br>
 			<input class="inputlogin" type="text" style="width: 100%" name="nombre" autocomplete="off"  id="nombre" value="<?= $dependenciaDatos['nombre'] ?>" placeholder="Nombre" /><br>
+		</div>
+
+		<div class="sucForm" style="width: 100%">
+			<label class="labelForm" id="labeltemaname">Nomenclatura<font color="#FF0004">*</font></label><br>
+			<input class="inputlogin" type="text" style="width: 100%" name="nombre" autocomplete="off"  id="nomenclatura" value="<?= $dependenciaDatos['nomenclatura'] ?>" placeholder="Nomenclatura" /><br>
 		</div>
 
 		<div class="sucForm" style="width: 100%">

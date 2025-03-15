@@ -2,7 +2,7 @@
 	include __DIR__."/../functions/security.php";
 	include '../functions/usuario_permisos.php';
 	@session_start();
-	$moduloAccionPermisos = moduloAccionPermisos('operatividad','dependencias',$_COOKIE["id_usuario"]);
+	$moduloAccionPermisos = moduloAccionPermisos('sistema_unico_beneficiarios','dependencias',$_COOKIE["id_usuario"]);
 	?>
 	<title>Dependencias</title>
 	<div id="bodymanager" class="bodymanager">

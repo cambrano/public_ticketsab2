@@ -30,7 +30,7 @@
 		}
 	}
 	$documento_oficialDatos=documento_oficialDatos($id);
-	$moduloAccionPermisos = moduloAccionPermisos('operatividad','documentos_oficiales',$_COOKIE["id_usuario"]);
+	$moduloAccionPermisos = moduloAccionPermisos('sistema_unico_beneficiarios','documentos_oficiales',$_COOKIE["id_usuario"]);
 ?>
 	<title>Delete</title>
 	<script language="javascript" type="text/javascript">

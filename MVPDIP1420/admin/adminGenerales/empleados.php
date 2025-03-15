@@ -107,6 +107,11 @@
 		$modulo_empleados_permisos = true;
 	}
 
+	$moduloAccionDependencias = moduloAccionPermisos('configuracion','empleados_dependencias',$_COOKIE["id_usuario"]);
+	if(!empty($moduloAccionDependencias)){
+		$modulo_empleados_dependencias = true;
+	}
+
 	$data = array();
 	$result = $conexion->query($sql); 
 	while($row=$result->fetch_assoc()){
@@ -131,9 +136,12 @@
 		if($modulo_empleados_permisos){
 			$empleados_permisos='<button class="btn btn-primary bt_responsive"  onClick="permisos('.$row["id"].');" >Permisos</button>';
 		}
+		if($modulo_empleados_dependencias){
+			$empleados_dependencias='<button class="btn btn-primary bt_responsive"  onClick="dependencias('.$row["id"].');" >Dependencias</button>';
+		}
 		//$select="<input type='radio' name='id'  class='checkselected' value='".$row['id']."'/>";
 
-		$nestedData[] =  "<div class='opciones_botones_3'>{$edit}{$empleados_permisos}{$delete}{$select}</div>";
+		$nestedData[] =  "<div class='opciones_botones_3'>{$edit}{$empleados_permisos}{$empleados_dependencias}{$delete}{$select}</div>";
 		$data[] = $nestedData;
 	}
 	////////////////////////////

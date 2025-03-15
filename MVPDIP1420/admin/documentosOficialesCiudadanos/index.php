@@ -32,7 +32,7 @@
 		$seccion_ine_ciudadanoDatos = seccion_ine_ciudadanoDatos($id_seccion_ine_ciudadano);
 		$nombre_completo = $seccion_ine_ciudadanoDatos['nombre_completo'];
 	}
-	$moduloAccionPermisos = moduloAccionPermisos('operatividad','documentos_oficiales',$_COOKIE["id_usuario"]);
+	$moduloAccionPermisos = moduloAccionPermisos('sistema_unico_beneficiarios','documentos_oficiales',$_COOKIE["id_usuario"]);
 
 ?>
 	<title>Documentos Oficiales</title>

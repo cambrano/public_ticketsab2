@@ -1,0 +1,408 @@
+[
+    {
+        "row": "municipio",
+        "nombre": "Municipio",
+        "tipo": "string",
+        "fill": "#525252",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "id_distrito_local",
+        "nombre": "Distrito Local",
+        "tipo": "integer",
+        "fill": "#525252",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "id_distrito_federal",
+        "nombre": "Distrito Federal",
+        "tipo": "integer",
+        "fill": "#525252",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "seccion_localidades",
+        "nombre": "Localidad(es)",
+        "tipo": "string",
+        "fill": "#525252",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "seccion_colonias",
+        "nombre": "Colonia(s)",
+        "tipo": "string",
+        "fill": "#525252",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "numero",
+        "nombre": "Sección",
+        "tipo": "integer",
+        "fill": "#525252",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "seccion_tipo",
+        "nombre": "Tipo Sección",
+        "tipo": "string",
+        "fill": "#525252",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "manzanas",
+        "nombre": "Manzanas",
+        "tipo": "integer",
+        "fill": "#525252",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "gps",
+        "nombre": "Ubicación GPS",
+        "tipo": "string",
+        "fill": "#525252",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "partido_primera_fuerza",
+        "nombre": "1era Fuerza",
+        "tipo": "string",
+        "fill": "#ffffbf",
+        "color": "#161616"
+    },
+    {
+        "row": "partido_primera_fuerza_votos",
+        "nombre": "1era Fuerza Votos",
+        "tipo": "integer",
+        "fill": "#ffffbf",
+        "color": "#161616"
+    },
+    {
+        "row": "partido_segunda_fuerza",
+        "nombre": "2da Fuerza",
+        "tipo": "string",
+        "fill": "#ffffbf",
+        "color": "#161616"
+    },
+    {
+        "row": "partido_segunda_fuerza_votos",
+        "nombre": "2da Fuerza Votos",
+        "tipo": "integer",
+        "fill": "#ffffbf",
+        "color": "#161616"
+    },
+    {
+        "row": "PAN",
+        "nombre": "PAN",
+        "tipo": "integer",
+        "fill": "#06338e",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "PRI",
+        "nombre": "PRI",
+        "tipo": "integer",
+        "fill": "#00923f",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "PAN-PRI_coa",
+        "nombre": "PAN-PRI_coa",
+        "tipo": "integer",
+        "fill": "#06338e",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "PAN-PRI_totales",
+        "nombre": "PAN-PRI V. Total",
+        "tipo": "integer",
+        "fill": "#06338e",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "PVEM",
+        "nombre": "PVEM",
+        "tipo": "integer",
+        "fill": "#50b747",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "PT",
+        "nombre": "PT",
+        "tipo": "integer",
+        "fill": "#da251d",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "MORENA",
+        "nombre": "MORENA",
+        "tipo": "integer",
+        "fill": "#b5261e",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "PVEM-PT-MORENA_coa",
+        "nombre": "PVEM-PT-MORENA_coa",
+        "tipo": "integer",
+        "fill": "#50b747",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "PVEM-PT-MORENA_totales",
+        "nombre": "PVEM-PT-MORENA V. Total",
+        "tipo": "integer",
+        "fill": "#50b747",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "PRD",
+        "nombre": "PRD",
+        "tipo": "integer",
+        "fill": "#ffcb01",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "MC",
+        "nombre": "MC",
+        "tipo": "integer",
+        "fill": "#ff8300",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "MAS",
+        "nombre": "MAS",
+        "tipo": "integer",
+        "fill": "#d95943",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "CAND-IND-1",
+        "nombre": "CAND-IND-1",
+        "tipo": "integer",
+        "fill": "#a0a0a0",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "casillas",
+        "nombre": "Casillas",
+        "tipo": "integer",
+        "fill": "#561436",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "votos_validos",
+        "nombre": "V. Validos",
+        "tipo": "integer",
+        "fill": "#561436",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "votos_can_nreg",
+        "nombre": "V. C N R",
+        "tipo": "integer",
+        "fill": "#561436",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "votos_nulos",
+        "nombre": "V. Nulos",
+        "tipo": "integer",
+        "fill": "#561436",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "votos_totales",
+        "nombre": "V. Totales",
+        "tipo": "integer",
+        "fill": "#561436",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "votos_totales_porcentaje",
+        "nombre": "V. Totales % Sum Total",
+        "tipo": "integer",
+        "fill": "#561436",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "lista_nominal",
+        "nombre": "LN",
+        "tipo": "integer",
+        "fill": "#561436",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "lista_nominal_porcentaje",
+        "nombre": "LN % Sum Total",
+        "tipo": "integer",
+        "fill": "#561436",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "participacion_ciudadana",
+        "nombre": "Participación C.",
+        "tipo": "integer",
+        "fill": "#561436",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "prioridad",
+        "nombre": "Prioridad Electoral",
+        "tipo": "string",
+        "fill": "#561436",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "ciudadanos_registrados",
+        "nombre": "Ciudadanos Reg",
+        "tipo": "integer",
+        "fill": "#0d503c",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "funcionarios",
+        "nombre": "Funcionarios",
+        "tipo": "integer",
+        "fill": "#0d503c",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "militantes",
+        "nombre": "Militantes",
+        "tipo": "integer",
+        "fill": "#0d503c",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "grupos_interes",
+        "nombre": "Grupos",
+        "tipo": "integer",
+        "fill": "#0d503c",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "apoyos_programas",
+        "nombre": "Programas Gob",
+        "tipo": "integer",
+        "fill": "#0d503c",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "acciones_obras",
+        "nombre": "Acciones",
+        "tipo": "integer",
+        "fill": "#0d503c",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "eventos_agenda_gobierno",
+        "nombre": "E. Agenda Gob",
+        "tipo": "integer",
+        "fill": "#0d503c",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "principal_nombre_corto_individual",
+        "nombre": "Principal Partido",
+        "tipo": "string",
+        "fill": "#b5261e",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "principal_votos_totales_individual",
+        "nombre": "Votos Totales Individual",
+        "tipo": "integer",
+        "fill": "#b5261e",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "principal_nombre_corto_individuales_coalicion",
+        "nombre": "Coaliciones Individuales",
+        "tipo": "string",
+        "fill": "#b5261e",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "principal_votos_totales_individuales_coalicion",
+        "nombre": "Votos Totales Ind. Coa.",
+        "tipo": "integer",
+        "fill": "#b5261e",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "principal_nombre_corto_coalicion",
+        "nombre": "Coaliciones",
+        "tipo": "string",
+        "fill": "#b5261e",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "principal_votos_totales_coalicion",
+        "nombre": "Coalición Votos",
+        "tipo": "integer",
+        "fill": "#b5261e",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "principal_votos_totales",
+        "nombre": "Votos Totales",
+        "tipo": "integer",
+        "fill": "#b5261e",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "principal_individual_votos_totales_porcentaje",
+        "nombre": "Votos Totales Individual %",
+        "tipo": "integer",
+        "fill": "#b5261e",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "principal_coalicion_votos_totales_porcentaje",
+        "nombre": "Votos Totales Coalición %",
+        "tipo": "integer",
+        "fill": "#b5261e",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "seccion_ine_semaforo_individual",
+        "nombre": "Semáforos Individual",
+        "tipo": "string",
+        "fill": "#b02a37",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "seccion_ine_semaforo_coalicion",
+        "nombre": "Semáforos Coalición",
+        "tipo": "string",
+        "fill": "#b02a37",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "rentabilidad_participacion_votos_partido_individual_porcentaje",
+        "nombre": "Rentabilidad Individual %",
+        "tipo": "integer",
+        "fill": "#495057",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "rentabilidad_participacion_votos_partido_individual_porcentaje_orden",
+        "nombre": "Rentabilidad Individual Orden",
+        "tipo": "integer",
+        "fill": "#495057",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "rentabilidad_participacion_votos_partido_coalicion_porcentaje",
+        "nombre": "Rentabilidad Coalición %",
+        "tipo": "integer",
+        "fill": "#495057",
+        "color": "#FFFFFF"
+    },
+    {
+        "row": "rentabilidad_participacion_votos_partido_coalicion_porcentaje_orden",
+        "nombre": "Rentabilidad Coalición Orden",
+        "tipo": "integer",
+        "fill": "#495057",
+        "color": "#FFFFFF"
+    }
+]

@@ -4,7 +4,7 @@
 	//include __DIR__."/../../MVPDIP1420/admin/keySistema/nf4WUJ1540838393iaHbsU1540838393.php";
 	include __DIR__."/../db.php";
 	/*
-	date_default_timezone_set('America/Mazatlan');//!cambio de zona horaria
+	date_default_timezone_set('America/Cancun');//!cambio de zona horaria
 	setlocale(LC_ALL,"es_ES");
 	$fechaH=date('Y-m-d H:i:s');
 	$fechaSH=date('H:i:s');

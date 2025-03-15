@@ -11,7 +11,7 @@
 
 
 		function notificaciones_sistemaDatos(){
-			date_default_timezone_set('America/Mazatlan');//!cambio de zona horaria
+			date_default_timezone_set('America/Cancun');//!cambio de zona horaria
 			setlocale(LC_ALL,"es_ES"); 
 			$fechaSF=date('Y-m-d');
 			$fechaSFMD=date('m-d');

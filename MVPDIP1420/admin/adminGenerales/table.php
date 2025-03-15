@@ -171,6 +171,19 @@
 			//window.open(link,'AsignarEmpleado','width=480, height=350'); return false;
 			$("#homebody").load(link);
 		}
+		function dependencias(valor){
+			link="usuarioDependencias/index.php?cot="+valor; 
+			var link2="usuarioDependencias/index.php";
+			dataString = 'urlink='+link2;
+			$.ajax({
+				type: "POST",
+				url: "functions/backarray.php",
+				data: dataString,
+				success: function(data) {}
+			});
+			//window.open(link,'AsignarEmpleado','width=480, height=350'); return false;
+			$("#homebody").load(link);
+		}
 	</script> 
 	<table id="usuarios-tabla" class="table table-striped table-bordered  cell-border compact stripe" style="width:100%">
 		<thead>

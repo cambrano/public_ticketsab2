@@ -1,5 +1,48 @@
 <?php
 
+	//include __DIR__."/../MVPDIP1420/admin/keySistema/nf4WUJ1540838393iaHbsU1540838393.php";
+	$dbhost="mysql1005.mochahost.com";
+	$dbport="3306";
+	//$dbusuario_user = $dbusuario="cambrano_perMVP";
+	//$dbpassword_user = $dbpassword="Z225a3wwZeYd";
+
+	$db="cambrano_perMVP";
+	$database_users_12X12[] = array('usuario' => 'cambrano_perMVP', 'password' => 'Z225a3wwZeYd', );
+	$database_users_12X12[] = array('usuario' => 'cambrano_perMVP1', 'password' => 'Z225a3wwZeYd', );
+	$database_users_12X12[] = array('usuario' => 'cambrano_perMVP2', 'password' => 'Z225a3wwZeYd', );
+	$database_users_12X12[] = array('usuario' => 'cambrano_perMVP3', 'password' => 'Z225a3wwZeYd', );
+	$database_users_12X12[] = array('usuario' => 'cambrano_perMVP4', 'password' => 'Z225a3wwZeYd', );
+	$database_users_12X12[] = array('usuario' => 'cambrano_perMVP5', 'password' => 'Z225a3wwZeYd', );
+	$database_users_12X12[] = array('usuario' => 'cambrano_perMVP6', 'password' => 'Z225a3wwZeYd', );
+	$database_users_12X12[] = array('usuario' => 'cambrano_perMVP7', 'password' => 'Z225a3wwZeYd', );
+	$database_users_12X12[] = array('usuario' => 'cambrano_perMVP8', 'password' => 'Z225a3wwZeYd', );
+	$datauser_random = array_rand($database_users_12X12, 1);
+	$dbusuario_user = $dbusuario = $database_users_12X12[$datauser_random]['usuario'];
+	$dbpassword_user = $dbpassword = $database_users_12X12[$datauser_random]['password'];
+
+	/* 
+	$db="cambrano_perTab";
+	$database_users_12X12[] = array('usuario' => 'cambrano_perTab', 'password' => 'JxKjHCdO6vRX', );
+	$database_users_12X12[] = array('usuario' => 'cambrano_perTab1', 'password' => 'JxKjHCdO6vRX', );
+	$database_users_12X12[] = array('usuario' => 'cambrano_perTab2', 'password' => 'JxKjHCdO6vRX', );
+	$database_users_12X12[] = array('usuario' => 'cambrano_perTab3', 'password' => 'JxKjHCdO6vRX', );
+	$database_users_12X12[] = array('usuario' => 'cambrano_perTab4', 'password' => 'JxKjHCdO6vRX', );
+	$database_users_12X12[] = array('usuario' => 'cambrano_perTab5', 'password' => 'JxKjHCdO6vRX', );
+	$database_users_12X12[] = array('usuario' => 'cambrano_perTab6', 'password' => 'JxKjHCdO6vRX', );
+	$database_users_12X12[] = array('usuario' => 'cambrano_perTab7', 'password' => 'JxKjHCdO6vRX', );
+	$database_users_12X12[] = array('usuario' => 'cambrano_perTab8', 'password' => 'JxKjHCdO6vRX', );
+	$datauser_random = array_rand($database_users_12X12, 1);
+	$dbusuario_user = $dbusuario = $database_users_12X12[$datauser_random]['usuario'];
+	$dbpassword_user = $dbpassword = $database_users_12X12[$datauser_random]['password'];
+	
+
+	 
+	$dbhost="localhost";
+	//$dbhost='yucatan.cywmkfwca0fn.us-east-2.rds.amazonaws.com';
+	$db="cambrano_perMVP";
+	$dbusuario = $dbusuario_user="root";
+	$dbpassword_user = $dbpassword="root";
+	*/
 	 
 	
 	
@@ -20,7 +63,7 @@
 		echo "Ha ocurrido un error: " . $conexion->connect_error . "Número del error: " . $conexion->connect_errno;
 	}
 
-	date_default_timezone_set('America/Mazatlan');//!cambio de zona horaria
+	date_default_timezone_set('America/Cancun');//!cambio de zona horaria
 	setlocale(LC_ALL,"es_ES");
 	$fechaH=date('Y-m-d H:i:s');
 	$fechaSH=date('H:i:s');

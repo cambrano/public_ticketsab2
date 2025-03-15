@@ -17,7 +17,7 @@
 		die;
 	}
 	$dependenciaDatos=dependenciaDatos($id);
-	$moduloAccionPermisos = moduloAccionPermisos('operatividad','dependencias',$_COOKIE["id_usuario"]);
+	$moduloAccionPermisos = moduloAccionPermisos('sistema_unico_beneficiarios','dependencias',$_COOKIE["id_usuario"]);
 
 	$tablasRelacionadas = tablasRelacionadas('dependencias',$id);
 	$registros_titutlo = 'Este registro esta ligado a : <br>';

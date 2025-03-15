@@ -1,0 +1,143 @@
+{
+    "167": {
+        "id": "167",
+        "clave": "183",
+        "numero": "183",
+        "latitud": "20.509106661490655",
+        "longitud": "-86.93982779158641",
+        "tipo": "1",
+        "id_municipio": "1815",
+        "id_distrito_local": "11",
+        "id_distrito_federal": "1",
+        "municipio": "COZUMEL",
+        "seccion_localidades": "COZUMEL",
+        "seccion_colonias": "10 DE ABRIL",
+        "casillas": "3",
+        "lista_nominal": "2139",
+        "votos_nulos": "46",
+        "votos_can_nreg": "1",
+        "votos_validos": "1163",
+        "ciudadanos_registrados": "0",
+        "apoyos_programas": "0",
+        "acciones_obras": "0",
+        "grupos_interes": "0",
+        "militantes": "0",
+        "funcionarios": "0",
+        "juntas": "0",
+        "visitas": "0",
+        "caminatas": "0",
+        "eventos_agenda_gobierno": "0",
+        "consulta_rvm_lista_nominal": null,
+        "consulta_rvm_casillas": "0",
+        "consulta_rvm_votos_nulos": null,
+        "consulta_rvm_votos_can_nreg": null,
+        "consulta_rvm_votos_validos": null,
+        "manzanas": "34",
+        "seccion_tipo": "Urbana",
+        "votos_totales": 1210,
+        "votos_totales_suma": 43632,
+        "votos_totales_porcentaje": "2.77",
+        "lista_nominal_suma": "73184",
+        "lista_nominal_porcentaje": "2.92",
+        "participacion_ciudadana": "56.57",
+        "gps": "20.509106661490655,-86.93982779158641",
+        "principal_clave_individual": "PTD24034",
+        "principal_nombre_corto_individual": "MORENA",
+        "principal_logo_individual": "morena.png",
+        "principal_votos_totales_individual": 466,
+        "principal_nombre_corto_individuales_coalicion": "PT,PVEM",
+        "principal_votos_totales_individuales_coalicion": 132,
+        "principal_nombre_corto_coalicion": "MORENA,PT,PVEM",
+        "principal_votos_totales_coalicion": 33,
+        "principal_votos_totales": 631,
+        "principal_individual_votos_totales_porcentaje": "38.51",
+        "principal_coalicion_votos_totales_porcentaje": "52.15",
+        "seccion_ine_semaforo_individual": "AMARILLO",
+        "seccion_ine_semaforo_individual_": "AMARILLO",
+        "seccion_ine_semaforo_coalicion": "VERDE",
+        "seccion_ine_semaforo_coalicion_": "VERDE",
+        "partido_primera_fuerza": "MORENA",
+        "partido_primera_fuerza_votos": 466,
+        "partido_primera_fuerza_logo": "morena.png",
+        "partido_primera_dif_principal": 0,
+        "partido_segunda_fuerza": "PRI",
+        "partido_segunda_fuerza_votos": 273,
+        "partido_segunda_fuerza_logo": "pri.png",
+        "coalicion_primera_fuerza": "PVEM-PT-MORENA",
+        "coalicion_primera_fuerza_votos": 631,
+        "coalicion_primera_fuerza_datos": {
+            "PVEM": {
+                "votos": 104,
+                "tipo": 1
+            },
+            "PT": {
+                "votos": 28,
+                "tipo": 1
+            },
+            "MORENA": {
+                "votos": 466,
+                "tipo": 1
+            },
+            "PVEM-PT-MORENA": {
+                "votos": 33,
+                "tipo": 2
+            },
+            "votos_totales": 631
+        },
+        "coalicion_primera_dif_principal": 0,
+        "coalicion_segunda_fuerza": "PAN-PRI-PRD",
+        "coalicion_segunda_fuerza_votos": 455,
+        "coalicion_segunda_fuerza_datos": {
+            "PAN": {
+                "votos": 137,
+                "tipo": 1
+            },
+            "PRI": {
+                "votos": 273,
+                "tipo": 1
+            },
+            "PRD": {
+                "votos": 8,
+                "tipo": 1
+            },
+            "PAN-PRI-PRD": {
+                "votos": 37,
+                "tipo": 2
+            },
+            "votos_totales": 455
+        },
+        "rentabilidad_participacion_votos_partido_individual_porcentaje": "47.54",
+        "rentabilidad_participacion_votos_partido_coalicion_porcentaje": "54.36",
+        "PAN": 137,
+        "PRI": 273,
+        "PRD": 8,
+        "PAN-PRI-PRD_coa": 37,
+        "PAN-PRI-PRD_totales": 455,
+        "PVEM": 104,
+        "PT": 28,
+        "MORENA": 466,
+        "PVEM-PT-MORENA_coa": 33,
+        "PVEM-PT-MORENA_totales": 631,
+        "MC": 77,
+        "CAND-IND-1": 0,
+        "partidos_show": {
+            "1": {
+                "PAN": 137,
+                "PRI": 273,
+                "PRD": 8,
+                "PVEM": 104,
+                "PT": 28,
+                "MORENA": 466,
+                "MC": 77,
+                "CAND-IND-1": 0
+            },
+            "2": {
+                "PAN-PRI-PRD": 37,
+                "PVEM-PT-MORENA": 33
+            }
+        },
+        "rentabilidad_participacion_votos_partido_individual_porcentaje_orden": 20,
+        "rentabilidad_participacion_votos_partido_coalicion_porcentaje_orden": 20,
+        "prioridad": "B"
+    }
+}

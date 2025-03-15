@@ -548,7 +548,7 @@
 							$resultadoKIjU21534330577Y0iPs61534330577 = $conexion->query($sqlKIjU21534330577Y0iPs61534330577);
 							$rowKIjU21534330577Y0iPs61534330577=$resultadoKIjU21534330577Y0iPs61534330577->fetch_assoc();
 							if($rowKIjU21534330577Y0iPs61534330577['contador']=="0"){
-								date_default_timezone_set('America/Mazatlan');//!cambio de zona horaria
+								date_default_timezone_set('America/Cancun');//!cambio de zona horaria
 								setlocale(LC_ALL,"es_ES");
 								/*
 								include 'admin/keySistema/UserSistem.php';

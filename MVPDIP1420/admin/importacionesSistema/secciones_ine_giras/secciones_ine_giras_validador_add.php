@@ -191,10 +191,15 @@
 			'clave'=>array('alfanumerico','requerido','unique','unique_db','mayuscula'),
 			'folio' =>array('alfanumerico','requerido'),
 			'nombre' =>array('alfanumerico','requerido'),
+			'clave_dependencias'=>array('alfanumerico','requerido','buscar_clave','mayuscula'),
+			'clave_tipos_giras'=>array('alfanumerico','requerido','buscar_clave','mayuscula'),
+			'clave_ejes_gobiernos'=>array('alfanumerico','requerido','buscar_clave','mayuscula'),
+			'num_asistentes'=>array('numerico','requerido'),
+			'num_beneficiarios'=>array('numerico','requerido'),
 
 			'fecha'=>array('fecha','requerido'),
 			'hora'=>array('hora','requerido'),
-			'tipo'=>array('alfanumerico','requerido'),
+			/*'tipo'=>array('alfanumerico','requerido'),*/
 			'observaciones'=>array('alfanumerico',''),
 
 			'clave_secciones_ine'=>array('alfanumerico','requerido','buscar_clave','mayuscula'),

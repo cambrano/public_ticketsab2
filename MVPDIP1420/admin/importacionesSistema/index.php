@@ -577,6 +577,14 @@
 				}
 			}
 
+			if(tabla_operacion=="tipos_giras"){
+				if(tipo_operacion==1){
+					var ruta = "importacionesSistema/tipos_giras/tipos_giras_validador_add.php";
+				}else{
+					var ruta = "importacionesSistema/tipos_giras/tipos_giras_validador_edit.php";
+				}
+			}
+
 			document.getElementById('loadSistema').style.display = "inline-block";
 			 $.ajax({
 				url: ruta,

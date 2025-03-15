@@ -492,6 +492,14 @@
 			margin-bottom: 5px;
 			padding: 2px;
 		}
+		.sucForm50{
+			float: left;
+			position: relative;
+			margin-right: 5px;
+			margin-bottom: 5px;
+			padding: 2px;
+			width: 49%;
+		}
 		.BotonWorkFlow{
 			color:white !important;
 			background-color:#04AA6D!important;
@@ -522,7 +530,7 @@
 		}
 		@media only screen and (max-width:820px) {
 			/* For mobile phones: */
-			.sucForm,.sucFormTitulo{
+			.sucForm,.sucFormTitulo,.sucForm50{
 				width: 100%;
 			}
 			.myselect{

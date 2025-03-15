@@ -45,7 +45,7 @@
 	$sql.=" ORDER BY ". $columns[$requestData['order'][0]['column']]."  ".$requestData['order'][0]['dir'] ;
 
 	$sql.=" LIMIT ".$requestData['start']." ,".$requestData['length'].";";
-	$moduloAccionPermisos = moduloAccionPermisos('operatividad','api_whatsapp_mensajes',$_COOKIE["id_usuario"]);
+	$moduloAccionPermisos = moduloAccionPermisos('sistema_unico_beneficiarios','api_whatsapp_mensajes',$_COOKIE["id_usuario"]);
 	if( $moduloAccionPermisos['delete'] || $moduloAccionPermisos['all']){
 		$option_delete = true;
 	}

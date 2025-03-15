@@ -48,6 +48,7 @@
 			WHEN (SELECT p.permiso FROM permisos p WHERE p.id=up.id_permiso ) ='download' THEN 'descargar'
 			WHEN (SELECT p.permiso FROM permisos p WHERE p.id=up.id_permiso ) ='all' THEN 'total'
 			WHEN (SELECT p.permiso FROM permisos p WHERE p.id=up.id_permiso ) ='captura' THEN 'captura'
+			WHEN (SELECT p.permiso FROM permisos p WHERE p.id=up.id_permiso ) ='todas_dependencias' THEN 'Todas las dependencias'
 		END nombre_permiso,
 		IF( up.status=1,
 			'activo',

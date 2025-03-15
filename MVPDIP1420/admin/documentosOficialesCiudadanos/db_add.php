@@ -6,7 +6,7 @@
 	include __DIR__."/../functions/files_size.php";
 	include __DIR__."/../functions/usuario_permisos.php";
 	include __DIR__."/../functions/efs.php";
-	$moduloAccionPermisos = moduloAccionPermisos('operatividad','documentos_oficiales',$_COOKIE["id_usuario"]);
+	$moduloAccionPermisos = moduloAccionPermisos('sistema_unico_beneficiarios','documentos_oficiales',$_COOKIE["id_usuario"]);
 
 	if( $moduloAccionPermisos['insert'] == false && $moduloAccionPermisos['all'] == false ){
 		echo "No tiene permiso.";

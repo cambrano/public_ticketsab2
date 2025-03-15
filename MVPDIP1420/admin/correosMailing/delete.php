@@ -17,7 +17,7 @@
 		die;
 	}
 	$correo_mailingDatos=correo_mailingDatos($id);
-	$moduloAccionPermisos = moduloAccionPermisos('operatividad','correos_mailing',$_COOKIE["id_usuario"]);
+	$moduloAccionPermisos = moduloAccionPermisos('sistema_unico_beneficiarios','correos_mailing',$_COOKIE["id_usuario"]);
 
 	$tablasRelacionadas = tablasRelacionadas('correos_mailing',$id);
 	$registros_titutlo = 'Este registro esta ligado a : <br>';

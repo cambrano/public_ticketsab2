@@ -43,6 +43,9 @@
 					if($row['permiso']=="captura"){
 						$nombre="Captura";
 					}
+					if($row['permiso']=="todas_dependencias"){
+						$nombre="Todas las dependencias";
+					}
 					$return .="<option ".$select[$sel]." value='".$row['id']."' >".$nombre."</option> ";
 				} 
 			}
@@ -90,6 +93,9 @@
 					if($row['permiso']=="captura"){
 						$nombre="Captura";
 					}
+					if($row['permiso']=="todas_dependencias"){
+						$nombre="Todas las dependencias";
+					}
 					$id=$row['id'];
 					$indice = in_array($id, $arrayPermisos);
 					if(in_array($id, $arrayPermisos)){
@@ -131,6 +137,9 @@
 			}
 			if($row['permiso']=="captura"){
 				$nombre="Captura";
+			}
+			if($row['permiso']=="todas_dependencias"){
+				$nombre="Todas las dependencias";
 			}
 			$conexion->close();
 			return $nombre;

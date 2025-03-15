@@ -25,6 +25,57 @@
 			return $row;
 		}
 
+		function usuariosCiudadanos($id=null,$id_seccion_ine_ciudadano=null,$id_seccion_ine=null,$status=null,$permisos=null,$sin_seleccione=null){
+			include 'db.php';  
+			if($sin_seleccione==""){
+				$return ="<option ".$select[$sel]." value='' >Seleccione</option> ";
+			}
+			$sql = " SELECT 
+					u.id,
+					u.usuario,
+					sic.id AS id_seccion_ine_ciudadano,
+					sic.nombre_completo,
+					s.numero AS seccion,
+					sic.id_seccion_ine,
+					sicp.casilla,
+					sicp.entrega,
+					sicp.recibe,
+					sicp.evaluacion
+					FROM usuarios u
+					LEFT JOIN secciones_ine_ciudadanos sic
+					ON u.id_seccion_ine_ciudadano = sic.id
+					LEFT JOIN secciones_ine s
+					ON sic.id_seccion_ine = s.id
+					LEFT JOIN secciones_ine_ciudadanos_permisos sicp
+					ON sic.id = sicp.id_seccion_ine_ciudadano
+					WHERE u.tabla = 'secciones_ine_ciudadanos'
+			";
+			if($id !=""){
+				$sql.= " AND u.id = {$id} ";
+			}
+			if($id_seccion_ine_ciudadano !=""){
+				$sql.= " AND u.id_seccion_ine_ciudadano = {$id_seccion_ine_ciudadano} ";
+			}
+			if($status !=""){
+				$sql.= " AND u.status = {$status} ";
+			}
+			if($id_seccion_ine !=""){
+				$sql.= " AND sic.id_seccion_ine = '{$id_seccion_ine}' ";
+			}
+
+			foreach ($permisos as $key => $value) {
+				$sql.= " AND sicp.{$key} = {$value} ";
+			}
+			$sql.=" LIMIT 10 ";
+			$result = $conexion->query($sql);  
+			 
+			while($row=$result->fetch_assoc()){
+				$sel=$row['id'];
+				$return .="<option ".$select[$sel]." value='".$row['id']."' >".$row['nombre_completo'].' - '.$row['usuario'].' - '.$row['seccion']."</option> ";
+			} 
+			$conexion->close();
+			return $return;
+		}
 
 
 		function usuarioDatos($id=null,$id_empleado=null,$id_seccion_ine_ciudadano=null) {

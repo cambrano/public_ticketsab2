@@ -29,18 +29,24 @@
 					COALESCE(u.usuario, lut.id_usuario) AS usuario,
 					CASE 
 						WHEN u.tabla = 'empleados' THEN 'empleado'
+						WHEN u.tabla = 'secciones_ine_ciudadanos' THEN 'ciudadano'
 					END AS tabla_tipo,
 					CASE 
 						WHEN u.tabla = 'empleados' THEN
 							CONCAT(e.nombre, ' ', e.apellido_paterno, ' ', e.apellido_materno)
+						WHEN u.tabla = 'secciones_ine_ciudadanos' THEN
+							CONCAT(sic.nombre, ' ', sic.apellido_paterno, ' ', sic.apellido_materno)
 					END AS nombre_usuario,
 					u.usuario
 				FROM log_usuarios_tracking lut 
-				LEFT JOIN usuarios u ON lut.id_usuario = u.id
-				LEFT JOIN empleados e ON u.id_empleado = e.id AND u.tabla = 'empleados'
+				LEFT JOIN usuarios u
+				ON lut.id_usuario = u.id
+				LEFT JOIN empleados e
+				ON u.id_empleado = e.id AND u.tabla = 'empleados'
+				LEFT JOIN secciones_ine_ciudadanos sic
+				ON u.id_seccion_ine_ciudadano = sic.id AND u.tabla = 'secciones_ine_ciudadanos'
 				WHERE lut.id_usuario <> 1
-				GROUP BY lut.id_usuario;
-;";
+				GROUP BY lut.id_usuario;";
 		$result = $conexion->query($sql);  
 		while($row=$result->fetch_assoc()){
 			$sel=$row['id'];

@@ -136,4 +136,34 @@
 		}
 		return $data;
 	}
+	function usuario_permisoDatos($id=null,$id_usuario_modulo=null,$id_permiso=null,$id_modulo=null,$status=null,$id_usaurio=null,$id_empleado=null) {
+		include 'db.php'; 
+		$sql="SELECT * FROM usuarios_permisos WHERE 1 = 1 ";
+		if($id!=""){
+			$sql.=" AND id='$id' ";
+		}
+		if($id_usuario_modulo!=""){
+			$sql.=" AND id_usuario_modulo='$id_usuario_modulo' ";
+		}
+		if($id_permiso!=""){
+			$sql.=" AND id_permiso='$id_permiso' ";
+		}
+		if($id_modulo!=""){
+			$sql.=" AND id_modulo='$id_modulo' ";
+		}
+		if($status!=""){
+			$sql.=" AND status='$status' ";
+		}
+		if($id_usaurio!=""){
+			$sql.=" AND id_usaurio='$id_usaurio' ";
+		}
+		if($id_empleado!=""){
+			$sql.=" AND id_empleado='$id_empleado' ";
+		}
+		$resultado = $conexion->query($sql);
+		$row=$resultado->fetch_assoc();
+		$datos=$row;
+		$conexion->close();
+		return $datos;
+	}
 ?>

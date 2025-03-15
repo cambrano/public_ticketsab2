@@ -1,0 +1,18 @@
+Estado
+Background
+#377eb8
+
+lines
+#eff8ff
+
+Remarcar
+#003b68
+
+
+background psd
+#607e94
+#102c51
+
+mapa psd
+#b98aaa
+#cfa5b9

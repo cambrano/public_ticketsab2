@@ -7,7 +7,7 @@
 	include __DIR__."/../functions/claves.php";
 	include __DIR__."/../functions/usuario_permisos.php";
 	include __DIR__."/../functions/tool_xhpzab.php";
-	$moduloAccionPermisos = moduloAccionPermisos('operatividad',"dependencias",$_COOKIE["id_usuario"]);
+	$moduloAccionPermisos = moduloAccionPermisos('sistema_unico_beneficiarios',"dependencias",$_COOKIE["id_usuario"]);
 	if( $moduloAccionPermisos['update'] == false && $moduloAccionPermisos['all'] == false ){
 		echo "No tiene permiso.";
 		die;

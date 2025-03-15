@@ -11,16 +11,41 @@
 		$permiso="insert";
 	}
 	$inputs= array(
-		'tipo_gasto'=>'tipo_gasto',
-		'forma_tipo_gasto'=>'forma_tipo_gasto',
+		
+		'empresa_adjudicada'=>'empresa_adjudicada',
+		'forma_empresa_adjudicada'=>'forma_empresa_adjudicada',
 
-		'tipo_gasto_asignado'=>'tipo_gasto_asignado',
-		'forma_tipo_gasto_asignado'=>'forma_tipo_gasto_asignado',
 
-		'control_gasto_ingreso'=>'control_gasto_ingreso',
-		'forma_control_gasto_ingreso'=>'forma_control_gasto_ingreso',
+		'supervisor'=>'supervisor',
+		'forma_supervisor'=>'forma_supervisor',
+
+		'seccion_ine_gira'=>'seccion_ine_gira',
+		'forma_seccion_ine_gira'=>'forma_seccion_ine_gira',
+
+		'seccion_ine_ciudadano_gira'=>'seccion_ine_ciudadano_gira',
+		'forma_seccion_ine_ciudadano_gira'=>'forma_seccion_ine_ciudadano_gira',
+
+
+		'partido_2016'=>'partido_2016',
+		'forma_partido_2016'=>'forma_partido_2016',
+
+		'casilla_voto_2016'=>'casilla_voto_2016',
+		'forma_casilla_voto_2016'=>'forma_casilla_voto_2016',
+
+		'partido_2024'=>'partido_2024',
+		'forma_partido_2024'=>'forma_partido_2024',
+
+		'casilla_voto_2024'=>'casilla_voto_2024',
+		'forma_casilla_voto_2024'=>'forma_casilla_voto_2024',
+
+		'tipo_gira'=>'tipo_gira',
+		'forma_tipo_gira'=>'forma_tipo_gira',
+
+		'seccion_ine_agenda_gobierno'=>'seccion_ine_agenda_gobierno',
+		'forma_seccion_ine_agenda_gobierno'=>'forma_seccion_ine_agenda_gobierno',
+
+
 	);
-
 	$moduloAccionPermisos = moduloAccionPermisos('configuracion','claves',$_COOKIE["id_usuario"]);
 	//var_dump($switch_operacionesDatos);
 	?>

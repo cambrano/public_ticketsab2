@@ -4,7 +4,7 @@
 	include __DIR__."/../functions/log_usuarios.php";
 	include __DIR__."/../functions/usuario_permisos.php";
 	
-	$moduloAccionPermisos = moduloAccionPermisos('operatividad','dependencias',$_COOKIE["id_usuario"]);
+	$moduloAccionPermisos = moduloAccionPermisos('sistema_unico_beneficiarios','dependencias',$_COOKIE["id_usuario"]);
 	if( $moduloAccionPermisos['delete'] == false && $moduloAccionPermisos['all'] == false ){
 		echo "No tiene permiso.";
 		die;

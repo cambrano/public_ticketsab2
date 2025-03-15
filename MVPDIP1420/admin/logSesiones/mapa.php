@@ -27,6 +27,10 @@
 		);
 		//var_dump($_POST);
 		if(!empty($_POST)){
+			include '../functions/secciones_ine.php';
+			include '../functions/secciones_ine_parametros.php';
+			$secciones_ineDatosMapa = secciones_ineDatosForm();
+			$secciones_ine_parametrosDatosMapa = secciones_ine_parametrosDatosMapa('','','','','','','');
 			include '../functions/log_sesiones.php';
 			if($_POST['mapa'][0]['order']==""){
 				$_POST['mapa'][0]['order'] =0;
